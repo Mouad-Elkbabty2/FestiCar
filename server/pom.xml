@@ -26,10 +26,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!-- Spring Security dependency -->
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-security</artifactId>
-</dependency>
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -119,7 +116,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <scope>test</scope>
+            <scope>runtime</scope>
         </dependency>
         <!---->
         <!-- http client for test-->

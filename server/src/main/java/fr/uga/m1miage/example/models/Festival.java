@@ -42,6 +42,5 @@ public class Festival {
     @Column
     private int nbPlace;
 
-    private List<Offre> offres;
 
 }
