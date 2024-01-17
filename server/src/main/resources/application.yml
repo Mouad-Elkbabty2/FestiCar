@@ -18,6 +18,9 @@ spring:
     url: jdbc:oracle:thin:@im2ag-oracle.univ-grenoble-alpes.fr:1521:im2ag
     username: elkbabtm
     password: 4dda772ebf
+    profiles:
+                active=dev:
+
   jpa:
     properties:
       hibernate:
@@ -26,3 +29,11 @@ spring:
           auto: update
         dialect: org.hibernate.dialect.Oracle10gDialect
     open-in-view: false
+
+
+
+  logging:
+    level:
+      org:
+        hibernate:
+          SQL=DEBUG:

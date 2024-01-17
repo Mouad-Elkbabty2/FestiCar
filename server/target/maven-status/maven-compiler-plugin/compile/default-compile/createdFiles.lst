@@ -1,1 +1,5 @@
 fr\uga\m1miage\example\ExampleSpringApplication.class
+fr\uga\m1miage\example\models\Offre.class
+fr\uga\m1miage\example\models\OffreId.class
+fr\uga\m1miage\example\models\Covoiturage.class
+fr\uga\m1miage\example\models\Festival.class
