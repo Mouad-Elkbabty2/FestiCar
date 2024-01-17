@@ -21,7 +21,6 @@ public class Festival {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idFestival;
 
-    @Column
     private String nomFestival;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
@@ -30,16 +29,12 @@ public class Festival {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dateFin;
 
-    @Column
     private long tarif;
 
-    @Column
     private double longitude;
 
-    @Column
     private double latitude;
 
-    @Column
     private int nbPlace;
 
 

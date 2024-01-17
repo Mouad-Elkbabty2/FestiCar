@@ -21,13 +21,14 @@ public class Covoiturage {
 
     // private Covoitureur covoitureur
 
-    @Column
     private int nbPlaces;
 
-    @Column
     @ManyToMany
     private List<Offre> offresCovoiturage ;
 
     // private List<Festivalier> festivalier
+    private double tarif ;
+
+    private String modelVoiture ;
 
 }
