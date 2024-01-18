@@ -41,8 +41,8 @@ public class Covoiturage {
     private List<LieuCovoiturage> lieuCovoiturageList ;
 
 
-    @ManyToMany
+/*    @ManyToMany
     @NotNull
     @JsonIgnore
-    private List<ArretCovoiturage> arretCovoiturageList ;
+    private List<ArretCovoiturage> arretCovoiturageList ;*/
 }
