@@ -1,10 +1,9 @@
 package fr.uga.m1miage.example.models;
 
-
 import lombok.*;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 
 @Entity
 @Data
@@ -14,6 +13,8 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class Pack {
 
-    @Id
-    private Long id ;
+    @EmbeddedId
+    private PackId idPack;
+
+    private int nbPlacesReserves;
 }

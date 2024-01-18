@@ -36,11 +36,12 @@ public class Festival {
     private double latitude;
 
     private int nbPlace;
-    private int nbPlacesVendues ;
+    private int nbPlacesVendues;
 
     private int nbPlacesDisponible;
 
     @ManyToOne
-    private SousDomaine sousDomaine ;
+    @JoinColumn(name = "nomSousDomaine")
+    private SousDomaine sousDomaine;
 
 }

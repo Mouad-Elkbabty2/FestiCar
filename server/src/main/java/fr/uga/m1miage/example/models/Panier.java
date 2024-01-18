@@ -1,6 +1,5 @@
 package fr.uga.m1miage.example.models;
 
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
@@ -17,13 +16,12 @@ public class Panier {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id ;
+    private long idPanier;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
 
     private Date dateCreation;
 
-    private double total ;
-
+    private double total;
 
 }

@@ -21,28 +21,30 @@ public class Covoiturage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idCovoiturage;
 
-
     private int nbPlaces;
 
+    private double tarif;
 
-    private double tarif ;
-
-    private String modelVoiture ;
+    private String modelVoiture;
 
     @ManyToOne
-    private Covoitureur covoitureur ;
+    @JoinColumn(name = "id")
+    private Covoitureur covoitureur;
 
     @ManyToMany
-    private List<Festivalier> festivalier ;
+    private List<Festivalier> festivalier;
 
     @ManyToMany
     @JsonIgnore
     @NotNull
-    private List<LieuCovoiturage> lieuCovoiturageList ;
+    private List<LieuCovoiturage> lieuCovoiturageList;
 
-
-/*    @ManyToMany
-    @NotNull
-    @JsonIgnore
-    private List<ArretCovoiturage> arretCovoiturageList ;*/
+    /*
+     * @ManyToMany
+     * 
+     * @NotNull
+     * 
+     * @JsonIgnore
+     * private List<ArretCovoiturage> arretCovoiturageList ;
+     */
 }

@@ -3,7 +3,6 @@ package fr.uga.m1miage.example.models;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
 import java.util.List;
 
 @Entity
@@ -18,6 +17,8 @@ public class SousDomaine {
     private String nomSousDomaine;
 
     @ManyToOne
+    @JoinColumn(name = "nomDomaine")
+
     private Domaine domaine;
 
     @OneToMany(mappedBy = "sousDomaine")

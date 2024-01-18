@@ -1,11 +1,11 @@
 package fr.uga.m1miage.example.models;
 
-
 import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -17,13 +17,15 @@ import javax.persistence.ManyToOne;
 public class Commune {
 
     @Id
-    private int codeInsee ;
+    private int codeInsee;
 
-    private String nomCommune ;
+    private String nomCommune;
 
-    private double longitude ;
-    private double latitude ;
+    private double longitude;
+    private double latitude;
     @ManyToOne
-    private Departement departement ;
+    @JoinColumn(name = "numDepartement")
+
+    private Departement departement;
 
 }
