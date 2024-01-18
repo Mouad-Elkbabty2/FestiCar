@@ -6,6 +6,7 @@ import lombok.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Data
@@ -22,5 +23,7 @@ public class Commune {
 
     private double longitude ;
     private double latitude ;
+    @ManyToOne
+    private Departement departement ;
 
 }

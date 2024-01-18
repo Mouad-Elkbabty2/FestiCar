@@ -3,10 +3,8 @@ package fr.uga.m1miage.example.models;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -18,7 +16,9 @@ public class Domaine {
 
     @Id
     private String nomDomaine ;
-    private String sousDomaine ;
+
+    @OneToMany(mappedBy = "domaine")
+    private List<SousDomaine> sousDomaine ;
     @ManyToOne
     private Festival festival ;
 

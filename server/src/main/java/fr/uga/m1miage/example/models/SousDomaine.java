@@ -1,12 +1,10 @@
 package fr.uga.m1miage.example.models;
 
-
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.Max;
+import java.util.List;
 
 @Entity
 @Data
@@ -17,6 +15,11 @@ import javax.persistence.Id;
 public class SousDomaine {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id ;
+    private String nomSousDomaine;
+
+    @ManyToOne
+    private Domaine domaine;
+
+    @OneToMany(mappedBy = "sousDomaine")
+    private List<Festival> festivalList;
 }

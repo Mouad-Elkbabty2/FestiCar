@@ -36,6 +36,11 @@ public class Festival {
     private double latitude;
 
     private int nbPlace;
+    private int nbPlacesVendues ;
 
+    private int nbPlacesDisponible;
+
+    @ManyToOne
+    private SousDomaine sousDomaine ;
 
 }

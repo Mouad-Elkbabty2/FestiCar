@@ -1,6 +1,4 @@
-/*
 package fr.uga.m1miage.example.models;
-
 
 import lombok.*;
 
@@ -14,19 +12,9 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class ArretCovoiturage {
 
-
     @EmbeddedId
-    private ArretCovoitId arretsCovoitId ;
+    private ArretCovoitId arretsCovoitId;
 
-    @Id
-    private String horaire ;
-
-    @OneToOne
-    @MapsId
-    private Covoiturage idCovoiturage;
-
-    private double tarif ;
-
+    private double tarif;
 
 }
-*/
