@@ -23,8 +23,6 @@ public class Covoiturage {
 
     private int nbPlaces;
 
-    @ManyToMany
-    private List<Offre> offresCovoiturage ;
 
     // private List<Festivalier> festivalier
     private double tarif ;
