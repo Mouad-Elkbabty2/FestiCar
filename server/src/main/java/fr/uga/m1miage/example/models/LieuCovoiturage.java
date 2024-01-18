@@ -4,6 +4,7 @@ package fr.uga.m1miage.example.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -21,7 +22,12 @@ public class LieuCovoiturage {
     @Column(name="adresse")
     private String adresseLieu ;
 
-    @Column(name="Insee")
+    @Column(name="insee")
     private int codeInsee ;
-    // type Lieu
+
+    @ManyToMany
+    private List<Covoiturage> covoiturageList ;
+
+    private double longitude ;
+    private double latitude ;
 }

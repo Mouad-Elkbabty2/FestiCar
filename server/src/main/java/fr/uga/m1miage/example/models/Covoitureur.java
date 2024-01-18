@@ -3,10 +3,8 @@ package fr.uga.m1miage.example.models;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -16,5 +14,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class Covoitureur extends Utilisateur{
 
-    private long idCovoiturage ;
+    @OneToMany(mappedBy = "covoitureur")
+    private List<Covoiturage> covoiturageList ;
+
 }

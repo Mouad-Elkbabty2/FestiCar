@@ -1,9 +1,12 @@
 package fr.uga.m1miage.example.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import java.util.List;
 
 @Data
 @Getter
@@ -12,5 +15,10 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @Entity
 public class Festivalier extends Utilisateur{
-    private long idCoiturage ;
+
+
+    @ManyToMany
+    @JsonIgnore
+    private List<Covoiturage> covoiturageList ;
+
 }
