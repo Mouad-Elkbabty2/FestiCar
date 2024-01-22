@@ -17,4 +17,6 @@ public class ArretCovoiturage {
 
     private double tarif;
 
+
+
 }

@@ -20,7 +20,5 @@ public class Region {
     @Id
     private String nomRegion;
 
-    @OneToMany(mappedBy = "nomRegion")
-    @NotNull
-    private List<Departement> departementList;
+
 }

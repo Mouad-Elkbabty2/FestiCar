@@ -15,7 +15,6 @@ import lombok.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Festival")
 public class Festival {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +28,7 @@ public class Festival {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dateFin;
 
-    private long tarif;
+    private double tarif;
 
     private double longitude;
 
@@ -41,7 +40,14 @@ public class Festival {
     private int nbPlacesDisponible;
 
     @ManyToOne
-    @JoinColumn(name = "nomSousDomaine")
+    @JoinColumn(name = "sousDomaine_id")
     private SousDomaine sousDomaine;
+
+    @OneToMany(mappedBy = "festival")
+    private List<Covoiturage> covoiturageList ;
+
+    @ManyToOne
+    @JoinColumn(name = "commune_id")
+    private Commune commune ;
 
 }

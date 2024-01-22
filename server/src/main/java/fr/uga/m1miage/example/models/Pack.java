@@ -17,4 +17,6 @@ public class Pack {
     private PackId idPack;
 
     private int nbPlacesReserves;
+
+
 }

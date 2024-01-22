@@ -2,11 +2,8 @@ package fr.uga.m1miage.example.models;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -23,9 +20,11 @@ public class Commune {
 
     private double longitude;
     private double latitude;
-    @ManyToOne
-    @JoinColumn(name = "numDepartement")
 
+    @ManyToOne
+    @JoinColumn(name = "departement_id")
     private Departement departement;
 
+    @OneToMany(mappedBy = "commune")
+    private List<Festival> festivalList ;
 }

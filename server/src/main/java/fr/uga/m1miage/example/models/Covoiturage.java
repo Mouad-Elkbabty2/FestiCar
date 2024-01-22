@@ -29,30 +29,19 @@ public class Covoiturage {
     private String couleur ;
     private String marque ;
 
+
     @ManyToOne
-    @JoinColumn(name = "id")
-    private Covoitureur covoitureur;
+    @JoinColumn(name="utilisateur_id")
+    private Utilisateur utilisateur ;
 
 
-    @ManyToMany
-    private List<Festivalier> festivalier;
+    @ManyToOne
+    @JoinColumn(name="festival_id")
+
+    private Festival festival ;
+    private int nbPlacesReservées ;
 
 
-
-    @ManyToMany
-    @JsonIgnore
-    @NotNull
-    private List<LieuCovoiturage> lieuCovoiturageList;
-
-
-    /*
-     * @ManyToMany
-     * 
-     * @NotNull
-     * 
-     * @JsonIgnore
-     * private List<ArretCovoiturage> arretCovoiturageList ;
-     */
 
 
 }

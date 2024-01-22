@@ -18,9 +18,6 @@ public class Domaine {
 
     @OneToMany(mappedBy = "domaine")
     private List<SousDomaine> sousDomaine;
-    @ManyToOne
-    @JoinColumn(name = "idFestival")
 
-    private Festival festival;
 
 }

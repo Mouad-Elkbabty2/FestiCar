@@ -17,10 +17,7 @@ public class SousDomaine {
     private String nomSousDomaine;
 
     @ManyToOne
-    @JoinColumn(name = "nomDomaine")
-
+    @JoinColumn(name = "domaine_id")
     private Domaine domaine;
 
-    @OneToMany(mappedBy = "sousDomaine")
-    private List<Festival> festivalList;
 }

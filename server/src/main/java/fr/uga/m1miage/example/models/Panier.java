@@ -24,7 +24,10 @@ public class Panier {
 
     private double total;
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "utilisateur_id")
     private Utilisateur utilisateur ;
+
+    @Enumerated(EnumType.ORDINAL)
+    private EtatPanier etat ;
 
 }

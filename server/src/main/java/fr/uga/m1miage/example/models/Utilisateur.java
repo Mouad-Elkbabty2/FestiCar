@@ -27,4 +27,6 @@ public class Utilisateur {
 
     @OneToMany(mappedBy = "utilisateur")
     private List<Panier> panier ;
+    @Enumerated(EnumType.ORDINAL)
+    private TypeUtilisateur typeUtilisateur ;
 }
