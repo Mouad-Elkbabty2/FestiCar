@@ -4,6 +4,7 @@ package fr.uga.m1miage.example.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -22,4 +23,8 @@ public class Utilisateur {
     private String prenom ;
     private String telephone ;
     private String email ;
+    private String mdp ;
+
+    @OneToMany(mappedBy = "utilisateur")
+    private List<Panier> panier ;
 }

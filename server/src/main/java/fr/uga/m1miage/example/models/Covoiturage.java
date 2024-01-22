@@ -26,18 +26,24 @@ public class Covoiturage {
     private double tarif;
 
     private String modelVoiture;
+    private String couleur ;
+    private String marque ;
 
     @ManyToOne
     @JoinColumn(name = "id")
     private Covoitureur covoitureur;
 
+
     @ManyToMany
     private List<Festivalier> festivalier;
+
+
 
     @ManyToMany
     @JsonIgnore
     @NotNull
     private List<LieuCovoiturage> lieuCovoiturageList;
+
 
     /*
      * @ManyToMany
@@ -47,4 +53,6 @@ public class Covoiturage {
      * @JsonIgnore
      * private List<ArretCovoiturage> arretCovoiturageList ;
      */
+
+
 }

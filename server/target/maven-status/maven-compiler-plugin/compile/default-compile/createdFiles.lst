@@ -15,7 +15,9 @@ fr\uga\m1miage\example\models\SousDomaine.class
 fr\uga\m1miage\example\repository\FestivalRepository.class
 fr\uga\m1miage\example\models\Organisateur.class
 fr\uga\m1miage\example\models\Covoiturage.class
+fr\uga\m1miage\example\models\EtatPanier.class
 fr\uga\m1miage\example\models\ArretCovoitId.class
+fr\uga\m1miage\example\models\TypeLieu.class
 fr\uga\m1miage\example\models\Utilisateur.class
 fr\uga\m1miage\example\models\Region.class
 fr\uga\m1miage\example\models\ArretCovoiturage.class

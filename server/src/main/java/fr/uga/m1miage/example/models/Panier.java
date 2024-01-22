@@ -23,5 +23,8 @@ public class Panier {
     private Date dateCreation;
 
     private double total;
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private Utilisateur utilisateur ;
 
 }
