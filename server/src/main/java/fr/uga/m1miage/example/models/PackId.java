@@ -28,7 +28,7 @@ public class PackId implements Serializable {
     @ManyToOne
     @JoinColumns({
             @JoinColumn(name = "horaire", referencedColumnName = "horaire"),
-            @JoinColumn(name = "lieuCovoiturage", referencedColumnName = "lieuCovoiturage")
+            @JoinColumn(name = "idCovoiturage", referencedColumnName = "idCovoiturage")
     })
     private ArretCovoiturage arretCovoiturage;
 }

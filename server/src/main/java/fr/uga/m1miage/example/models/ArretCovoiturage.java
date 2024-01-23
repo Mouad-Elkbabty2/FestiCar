@@ -16,6 +16,7 @@ public class ArretCovoiturage {
 
     private double tarif;
 
-
+    @ManyToOne
+    private LieuCovoiturage lieuCovoiturage;
 
 }

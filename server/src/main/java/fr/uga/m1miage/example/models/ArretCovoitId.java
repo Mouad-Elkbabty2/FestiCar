@@ -17,6 +17,9 @@ public class ArretCovoitId implements Serializable {
     private String horaire;
 
     @ManyToOne
-    @JoinColumn(name = "lieuCovoiturage")
-    private LieuCovoiturage lieuCovoiturage;
+    @JoinColumn(name = "idCovoiturage")
+    private Covoiturage idCovoiturage;
+
+
+
 }

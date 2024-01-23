@@ -24,4 +24,5 @@ public class LieuCovoiturage {
 
     private double longitude ;
     private double latitude ;
+
 }
