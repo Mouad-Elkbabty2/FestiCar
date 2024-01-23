@@ -18,7 +18,7 @@ public class CovoiturageDTO {
     private String marque ;
 
 
-    /*private Utilisateur utilisateur ;*/
+    private UtilisateurDTO utilisateur ;
 
 
 

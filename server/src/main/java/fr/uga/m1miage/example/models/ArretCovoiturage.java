@@ -8,7 +8,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Setter
-@Data
 @NoArgsConstructor
 public class ArretCovoiturage {
 

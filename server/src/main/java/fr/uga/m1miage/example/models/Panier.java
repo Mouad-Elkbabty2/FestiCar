@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Data
 @Getter
 @Setter
 @AllArgsConstructor
@@ -23,6 +22,7 @@ public class Panier {
     private Date dateCreation;
 
     private double total;
+
     @ManyToOne
     @JoinColumn(name = "utilisateur_id")
     private Utilisateur utilisateur ;

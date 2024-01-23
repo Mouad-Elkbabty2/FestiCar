@@ -1,18 +1,14 @@
 package fr.uga.m1miage.example.models;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
-import java.util.List;
 
 @Entity
 @AllArgsConstructor
 @Getter
 @Setter
-@Data
 @NoArgsConstructor
 
 public class Covoiturage {

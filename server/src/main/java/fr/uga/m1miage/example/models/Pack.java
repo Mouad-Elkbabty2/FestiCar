@@ -6,7 +6,6 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
 @Entity
-@Data
 @Getter
 @Setter
 @AllArgsConstructor

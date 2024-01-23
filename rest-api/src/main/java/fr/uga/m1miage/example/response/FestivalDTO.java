@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.sql.Date;
+import java.util.List;
 
 
 @Data
@@ -29,9 +30,9 @@ public class FestivalDTO {
 
     private int nbPlacesDisponible;
 
-/*    private SousDomaineDTO sousDomaine;
+    private SousDomaineDTO sousDomaine;
 
     private List<CovoiturageDTO> covoiturageList ;
 
-    private CommuneDTO commune ;*/
+    private CommuneDTO commune ;
 }

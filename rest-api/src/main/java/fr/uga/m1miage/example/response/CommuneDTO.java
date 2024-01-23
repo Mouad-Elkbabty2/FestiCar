@@ -15,9 +15,7 @@ public class CommuneDTO {
     private double longitude;
     private double latitude;
 
-/*
-    private Departement departement;
-*/
+    private DepartementDTO departement;
 
     private List<FestivalDTO> festivalDTOListList ;
 }

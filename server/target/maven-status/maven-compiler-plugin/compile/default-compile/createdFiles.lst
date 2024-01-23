@@ -1,7 +1,6 @@
 fr\uga\m1miage\example\ExampleSpringApplication.class
 fr\uga\m1miage\example\controller\FestivalController.class
 fr\uga\m1miage\example\models\Departement.class
-fr\uga\m1miage\example\mapper\FestivalMapperImpl.class
 fr\uga\m1miage\example\service\FestivalService.class
 fr\uga\m1miage\example\repository\PackRepository.class
 fr\uga\m1miage\example\Exception\FestivalNotFoundException.class
