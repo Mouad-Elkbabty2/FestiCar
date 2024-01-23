@@ -27,6 +27,11 @@
         </dependency>
         <!-- Spring Security dependency -->
 
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>5.5</version> <!-- Remplacez cette version par la dernière version disponible -->
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
