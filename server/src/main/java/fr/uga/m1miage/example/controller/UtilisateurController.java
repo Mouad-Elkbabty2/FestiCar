@@ -1,7 +1,6 @@
 package fr.uga.m1miage.example.controller;
 
 
-import fr.uga.m1miage.example.Exception.EntityAlreadyExists;
 import fr.uga.m1miage.example.endpoint.UtilisateurEndPoint;
 import fr.uga.m1miage.example.request.CreateUtilisateurRequest;
 import fr.uga.m1miage.example.response.UtilisateurDTO;

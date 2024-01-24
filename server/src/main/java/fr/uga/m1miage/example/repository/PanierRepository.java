@@ -10,7 +10,8 @@ import org.springframework.stereotype.Repository;
 
 public interface PanierRepository extends JpaRepository<Panier,Long> {
 
-    long deleteById(long id);
-    Panier getAllByUtilisateur(Utilisateur utilisateur) ;
+    void deleteById(final long id);
+    Panier getAllByUtilisateurId(final long utilisateurId) ;
+    Panier findPanierByIdPanier(final long idPanier);
 
 }

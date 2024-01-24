@@ -39,13 +39,15 @@ public interface UtilisateurEndPoint {
     @PostMapping
     @Operation(description = "Création d'une entité UtilisateurDTO")
     @ApiResponse(responseCode = "201", description = "L'entité Utilitsateur a bien été créée.")
+
     @ResponseStatus(HttpStatus.CREATED)
-    UtilisateurDTO createUtilisateur(@Valid @RequestBody CreateUtilisateurRequest createUtilisateurRequest) ;
+    UtilisateurDTO createUtilisateur(@Valid @RequestBody CreateUtilisateurRequest createUtilisateurRequest) throws  EntityNotFound ;
 
     @DeleteMapping("{id}")
     @Operation(description = "Suppression d'un utilisateur en bd")
+    @ApiResponse(responseCode = "201", description = "L'entité Utilitsateur a bien été supprimé.")
     @ApiResponse(responseCode = "418", description = "Renvoie une erreur 418 si l'entité n'a pu être supprimée",
             content = @Content(schema = @Schema(implementation = EntityNotFound.class),mediaType = MediaType.APPLICATION_JSON_VALUE))
     @ResponseStatus(HttpStatus.OK)
-    void deleteUtilitsater(@PathVariable long id);
+    void deleteUtilitsater(@PathVariable long id) ;
 }

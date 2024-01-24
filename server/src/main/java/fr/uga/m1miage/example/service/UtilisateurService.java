@@ -2,7 +2,6 @@ package fr.uga.m1miage.example.service;
 
 
 import fr.uga.m1miage.example.Component.UtilisateurComponent;
-import fr.uga.m1miage.example.Exception.EntityAlreadyExists;
 import fr.uga.m1miage.example.Exception.EntityNotFound;
 import fr.uga.m1miage.example.mapper.UtilisateurMapper;
 import fr.uga.m1miage.example.models.Utilisateur;
@@ -36,11 +35,8 @@ public class UtilisateurService {
     @Transactional
     public UtilisateurDTO createUtilisateur(final CreateUtilisateurRequest request)  {
         Utilisateur newUtilisateur = utilisateurMapper.DtoToEntityCreation(request);
-        try {
             return utilisateurComponent.createUtilisateur(newUtilisateur);
-        } catch (EntityAlreadyExists ex) {
-            throw new EntityAlreadyExists("Utilisateur dèja existant dans la bdd");
-        }
+
     }
     @SneakyThrows
     @Transactional
