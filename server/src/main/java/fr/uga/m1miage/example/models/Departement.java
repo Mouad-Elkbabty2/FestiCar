@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 @NoArgsConstructor
 public class Departement {
     @Id
-    private int numDepartement;
+    private String numDepartement;
 
     private String nomDepartement;
 

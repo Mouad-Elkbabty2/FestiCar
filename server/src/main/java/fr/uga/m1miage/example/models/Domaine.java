@@ -18,5 +18,9 @@ public class Domaine {
     @OneToMany(mappedBy = "domaine")
     private List<SousDomaine> sousDomaine;
 
+    public Domaine(String nomDomaine){
+        this.nomDomaine = nomDomaine;
+    }
+
 
 }
