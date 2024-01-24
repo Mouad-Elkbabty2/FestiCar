@@ -24,4 +24,10 @@ public class UtilisateurController implements UtilisateurEndPoint {
     public UtilisateurDTO createUtilisateur(final CreateUtilisateurRequest request)  {
             return  utilisateurService.createUtilisateur(request);
         }
+
+    @Override
+    public void deleteUtilitsater(long id) {
+          utilisateurService.deleteUtilisateur(id);
+
+    }
 }

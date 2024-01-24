@@ -41,4 +41,21 @@ public class UtilisateurService {
         } catch (EntityAlreadyExists ex) {
             throw new EntityAlreadyExists("Utilisateur dèja existant dans la bdd");
         }
-    }}
+    }
+    @SneakyThrows
+    @Transactional
+    public void deleteUtilisateur(final long id)  {
+        try {
+            utilisateurComponent.deleteUtilitsateur(id);
+        } catch (EntityNotFound ex) {
+            throw new EntityNotFound("Impossible de supprimer l'entité.");
+        }
+    }
+
+
+
+
+
+
+
+}

@@ -35,4 +35,13 @@ public class UtilisateurComponent {
         }
         return utilisateurMapper.entityToDTO(utilisateur);
     }
+
+    public void deleteUtilitsateur(final long id)  throws EntityNotFound{
+        Utilisateur utilisateur = utilisateurRepository.findUtilisateurById(id);
+        if(utilisateur == null){
+            throw new EntityNotFound("Utilitsateur existe déjà en BD.");
+        }
+
+        utilisateurRepository.deleteUtilisateurById(id);
+    }
 }

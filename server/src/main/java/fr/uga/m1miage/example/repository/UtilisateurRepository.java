@@ -7,4 +7,6 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur,Long> {
 
     void deleteUtilisateurById(final long utilisateurId) ;
     Utilisateur getUtilisateurById(final long id ) ;
+    Utilisateur findUtilisateurById(final long id);
+
 }

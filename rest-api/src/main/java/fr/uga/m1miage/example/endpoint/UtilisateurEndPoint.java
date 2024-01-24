@@ -1,6 +1,7 @@
 package fr.uga.m1miage.example.endpoint;
 
 
+import fr.uga.m1miage.example.error.EntityNotFound;
 import fr.uga.m1miage.example.request.CreateUtilisateurRequest;
 import fr.uga.m1miage.example.response.UtilisateurDTO;
 import io.swagger.v3.oas.annotations.Operation;
@@ -10,6 +11,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -40,4 +42,10 @@ public interface UtilisateurEndPoint {
     @ResponseStatus(HttpStatus.CREATED)
     UtilisateurDTO createUtilisateur(@Valid @RequestBody CreateUtilisateurRequest createUtilisateurRequest) ;
 
+    @DeleteMapping("{id}")
+    @Operation(description = "Suppression d'un utilisateur en bd")
+    @ApiResponse(responseCode = "418", description = "Renvoie une erreur 418 si l'entité n'a pu être supprimée",
+            content = @Content(schema = @Schema(implementation = EntityNotFound.class),mediaType = MediaType.APPLICATION_JSON_VALUE))
+    @ResponseStatus(HttpStatus.OK)
+    void deleteUtilitsater(@PathVariable long id);
 }
