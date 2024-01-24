@@ -34,14 +34,10 @@ public interface UtilisateurEndPoint {
     UtilisateurDTO getUtilisateurById(@PathVariable("id") Long id) ;
 
 
-    @PostMapping()
-    @Operation(summary = "Create Utilisateur ")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Utilisateur Created",
-                    content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = UtilisateurDTO.class)) }),
-            @ApiResponse(responseCode = "400", description = "Invalid parameters supplied",
-                    content = @Content) })
+    @PostMapping
+    @Operation(description = "Création d'une entité UtilisateurDTO")
+    @ApiResponse(responseCode = "201", description = "L'entité Utilitsateur a bien été créée.")
     @ResponseStatus(HttpStatus.CREATED)
     UtilisateurDTO createUtilisateur(@Valid @RequestBody CreateUtilisateurRequest createUtilisateurRequest) ;
+
 }

@@ -25,7 +25,9 @@ public class UtilisateurService {
     @Transactional
     public UtilisateurDTO getUtilisateurById(final long id)  {
         try{
-            return utilisateurMapper.entityToDTO(utilisateurComponent.getUtilisateur(id));
+            Utilisateur utilisateur = utilisateurComponent.getUtilisateur(id);
+            UtilisateurDTO utilisateurDTO = utilisateurMapper.entityToDTO(utilisateur) ;
+            return utilisateurDTO;
         }catch(EntityNotFound e){
             throw new EntityNotFound("Impossible de charger l'entité utilisateur");
         }
@@ -33,7 +35,7 @@ public class UtilisateurService {
     @SneakyThrows
     @Transactional
     public UtilisateurDTO createUtilisateur(final CreateUtilisateurRequest request)  {
-        Utilisateur newUtilisateur = utilisateurMapper.DtoToEntity(request);
+        Utilisateur newUtilisateur = utilisateurMapper.DtoToEntityCreation(request);
         try {
             return utilisateurComponent.createUtilisateur(newUtilisateur);
         } catch (EntityAlreadyExists ex) {
