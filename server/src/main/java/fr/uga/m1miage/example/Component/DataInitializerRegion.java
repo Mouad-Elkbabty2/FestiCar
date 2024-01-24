@@ -10,7 +10,6 @@ import java.util.List;
 
 @Component
 public class DataInitializerRegion implements CommandLineRunner {
-
     private final RegionDataLoading regionDataLoading;
 
 
@@ -20,7 +19,6 @@ public class DataInitializerRegion implements CommandLineRunner {
     public DataInitializerRegion(RegionDataLoading regionDataLoading) {
         this.regionDataLoading = regionDataLoading;
     }
-
     @Override
     public void run(String... args) {
         for (String cheminVersCSV : cheminsVersCSV) {
