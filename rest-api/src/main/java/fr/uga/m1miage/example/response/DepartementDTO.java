@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @Builder
 public class DepartementDTO {
-    private int numDepartement;
+    private String numDepartement;
 
     private String nomDepartement;
 
