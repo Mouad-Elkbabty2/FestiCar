@@ -8,22 +8,16 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
-public class DataInitializer implements CommandLineRunner {
+public class DataInitializerRegion  {
 
     private final RegionDataLoading regionDataLoading;
 
     @Value("#{'${chemins.vers.csv}'.split(',')}")
     private List<String> cheminsVersCSV;
 
-    public DataInitializer(RegionDataLoading regionDataLoading) {
+    public DataInitializerRegion(RegionDataLoading regionDataLoading) {
         this.regionDataLoading = regionDataLoading;
     }
 
-    @Override
-    public void run(String... args) {
-        for (String cheminVersCSV : cheminsVersCSV) {
-            regionDataLoading.chargerDonneesDepuisCSV(cheminVersCSV);
-        }
-    }
+
 }

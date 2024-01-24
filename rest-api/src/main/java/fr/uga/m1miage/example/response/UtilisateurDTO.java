@@ -1,6 +1,8 @@
 package fr.uga.m1miage.example.response;
 
 
+import java.util.List;
+
 public class UtilisateurDTO {
     private long id ;
 
@@ -10,6 +12,6 @@ public class UtilisateurDTO {
     private String email ;
     private String mdp ;
 
-/*    private List<Panier> panier ;
-    private TypeUtilisateur typeUtilisateur ;*/
+   private List<PanierDTO> panier ;
+    private TypeUtilisateur typeUtilisateur ;
 }
