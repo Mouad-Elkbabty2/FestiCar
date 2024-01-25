@@ -7,6 +7,7 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 @Getter
@@ -41,6 +42,7 @@ public class Festival {
     private SousDomaine sousDomaine;
 
     @OneToMany(mappedBy = "festival")
+    @JsonIgnore
     private List<Covoiturage> covoiturageList ;
 
     @ManyToOne

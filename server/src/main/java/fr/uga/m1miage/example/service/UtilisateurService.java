@@ -34,7 +34,7 @@ public class UtilisateurService {
     @SneakyThrows
     @Transactional
     public UtilisateurDTO createUtilisateur(final CreateUtilisateurRequest request)  {
-        Utilisateur newUtilisateur = utilisateurMapper.DtoToEntityCreation(request);
+        Utilisateur newUtilisateur = utilisateurMapper.dtoToEntityCreation(request);
             return utilisateurComponent.createUtilisateur(newUtilisateur);
 
     }

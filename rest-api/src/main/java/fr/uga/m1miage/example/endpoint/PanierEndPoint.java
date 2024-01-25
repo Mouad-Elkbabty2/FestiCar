@@ -3,13 +3,12 @@ package fr.uga.m1miage.example.endpoint;
 
 import fr.uga.m1miage.example.error.EntityNotFound;
 import fr.uga.m1miage.example.request.CreatePanierRequest;
-import fr.uga.m1miage.example.request.CreateUtilisateurRequest;
 import fr.uga.m1miage.example.response.PanierDTO;
-import fr.uga.m1miage.example.response.UtilisateurDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -37,4 +36,17 @@ public interface PanierEndPoint {
     @ResponseStatus(HttpStatus.CREATED)
     PanierDTO createPanier(@PathVariable final long utilisateurId,@Valid @RequestBody CreatePanierRequest createPanierRequest) throws  EntityNotFound ;
 
+
+    @GetMapping("{id}")
+    @Operation(summary = "Get a Panier by its id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the Panier",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = PanierDTO.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "Panier not found",
+                    content = @Content) })
+
+    PanierDTO getPanierById(@PathVariable("id") Long id) ;
 }

@@ -1,7 +1,6 @@
 package fr.uga.m1miage.example.endpoint;
 
 import fr.uga.m1miage.example.response.FestivalDTO;
-import fr.uga.m1miage.example.response.UtilisateurDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -23,7 +22,7 @@ public interface FestivalEndPoint {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Found the Festivals",
                     content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = UtilisateurDTO.class)) }),
+                            schema = @Schema(implementation = FestivalDTO.class)) }),
             @ApiResponse(responseCode = "400", description = "Invalid query",
                     content = @Content),
             @ApiResponse(responseCode = "404", description = "Festivals not found",

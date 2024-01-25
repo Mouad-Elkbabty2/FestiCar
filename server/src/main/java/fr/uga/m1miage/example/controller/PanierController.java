@@ -22,5 +22,10 @@ public class PanierController implements PanierEndPoint {
         return panierService.createPanier(utilisateurId,createPanierRequest);
     }
 
+    @Override
+    public PanierDTO getPanierById(Long id) {
+        return panierService.getPanier(id);
+    }
+
 
 }
