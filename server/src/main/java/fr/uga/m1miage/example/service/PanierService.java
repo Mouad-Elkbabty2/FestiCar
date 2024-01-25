@@ -4,10 +4,8 @@ import fr.uga.m1miage.example.Component.PanierComponent;
 import fr.uga.m1miage.example.Exception.EntityNotFound;
 import fr.uga.m1miage.example.mapper.PanierMapper;
 import fr.uga.m1miage.example.models.Panier;
-import fr.uga.m1miage.example.models.Utilisateur;
 import fr.uga.m1miage.example.request.CreatePanierRequest;
 import fr.uga.m1miage.example.response.PanierDTO;
-import fr.uga.m1miage.example.response.UtilisateurDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
@@ -34,7 +32,7 @@ public class PanierService {
     @Transactional
     public PanierDTO createPanier(final long utilitsateurId , final CreatePanierRequest request)  {
         Panier newPanier = panierMapper.DtoToEntityCreation(request);
-        return panierMapper.entityToDTO(newPanier);
+        return panierComponent.createPanier(utilitsateurId,newPanier);
     }
 
     @SneakyThrows
