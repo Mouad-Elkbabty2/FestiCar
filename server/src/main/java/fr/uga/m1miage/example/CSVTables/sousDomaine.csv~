@@ -1,0 +1,148 @@
+id,sousDomaine,id_domaine
+1,Musiques traditionnelles et du monde,8
+2,Transdisciplinaire,13
+3,Pluridisciplinaire Spectacle vivant,11
+4,Musiques amplifiées ou électroniques,8
+5,Arts de la rue,3
+6,Musiques actuelles,8
+7,Pluridisciplinaire Musique,10
+8,"Jazz, blues et musiques improvisées",8
+9,Musiques classiques,9
+10,Chanson,8
+11,Humour,5
+12,Baroque et ancien,9
+13,Bande dessinée,7
+14,Cultures d'Afrique,13
+15,Arts platiques et musique,13
+16,Musique de chambre,9
+17,Arts plastiques et visuels,1
+18,Danse contemporaine,4
+19,Cinémas étrangers,2
+20,Danse et musique,11
+21,Jeune public,11
+22,Marionnettes,5
+23,Musique contemporaine,9
+24,Traduction,7
+25,Livre et littérature,7
+26,Cirque et Arts de la rue,3
+27,Cirque,3
+28,Sciences humaines et sociales,7
+29,Littératures étrangères,7
+30,Architecture et paysage,6
+31,Photographie,1
+32,Design,1
+33,Histoire et patrimoine,6
+34,Poésie,7
+35,Littérature policière,7
+36,Films fantastique,2
+37,Musique et danse,11
+38,Danses urbaines,4
+39,Documentaire,2
+40,Création numérique,13
+41,Danse,4
+42,Audiovisuel,2
+43,Cinéma et audiovisuel,2
+44,Illustration,7
+45,Nature et littérature,13
+46,Lyrique et choral,9
+47,Enfance et jeunesse,2
+48,Animation,2
+49,Pop culture,13
+50,Culture hip hop,13
+51,Conte,5
+52,Courts-métrages,2
+53,Danses et musiques urbaines,11
+54,Danses du monde et traditionnelles,4
+55,Cultures électroniques,13
+56,Théâtre,12
+57,Musique et bande dessinée,13
+58,"Humour, conte, musique",11
+59,"Musiques, danses, cinéma, expositions",13
+60,Livre et cinéma,13
+61,Art numérique,1
+62,Jeune public,13
+63,Culture andalouse,13
+64,Sciences et techniques,6
+65,Géopolitique,13
+66,Journalisme,6
+67,Cinéma et nature,13
+68,Bandes annonces,2
+69,Biographie,7
+70,Magie,5
+71,Danse et arts multiples,11
+72,"Cirque, danse, performance, musique",11
+73,Danses et musiques du monde,11
+74,Musiques actuelles et arts de la rue,11
+75,Théâtre espagnol,12
+76,Livre audio,7
+77,Livre de jeunesse,7
+78,"Cinéma, littérature",13
+79,Patrimoine cinématographique,2
+80,Mode et photographie,1
+81,Jardins,6
+82,Film policier,2
+83,Premiers films,2
+84,Théâtre amateur,12
+85,Arts du carnet,7
+86,Littérature et chanson,13
+87,Musique et arts visuels,13
+88,Street art,1
+89,Lectures et spectacles,13
+90,"Théâtre, marionnettes, objets,musique, arts plastiques, vidéo",13
+91,Jeune public,12
+92,Arts plastiques et musique,13
+93,Jeune public,8
+94,Improvisation théatrale,12
+95,Jardins et spectacle vivant,13
+96,"Spectacle vivant, arts visuels, goût",13
+97,Cinéma et Musique,13
+98,"Lecture, spectacles",13
+99,"Musique, cirque, humour",11
+100,Nature et Arts plastiques,13
+101,Musiques électro,10
+102,"Expositions, concerts",13
+103,Musiques et danses du monde,11
+104,Livre et vin,13
+105,"Art urbain, art contemporain, musiques actuelles.",13
+106,Cultures urbaines,13
+107,Musiques Actuelles,8
+108,Cinéma et musique,13
+109,"Spectacle vivant, arts visuels, arts plastiques et cinéma",13
+110,Livre et arts visuels,13
+111,"Cinéma, musique",13
+112,Littérature et Spectacle Vivant,13
+113,Musique et cuisine,13
+114,Science fiction,7
+115,Littérature et Jazz,13
+116,Musiques actuelles et Arts de la rue,11
+117,Science fiction,13
+118,Littérature et musique,13
+119,Mime,5
+120,Cultures africaines,13
+121,Electro,8
+122,Musique et littérature,13
+123,Sport et Musiques actuelles,13
+124,Musiques et arts visuels,13
+125,Arts et  cultures du Proche-Orient,13
+126,"Expositions, musiques actuelles",13
+127,Musiques et arts de la rue,11
+128,Cultures nordiques,13
+129,Ecritures,7
+130,Théâtre et lecture,13
+131,Spectacle vivant et arts de la table,13
+132,Vin et musique,13
+133,Livre historique,7
+134,revues,7
+135,Livre de montagne,7
+136,Livre ancien,13
+137,Poche,7
+138,Musique et arts plastiques,13
+139,Swing,4
+140,"Musique, théâtre, cinéma, gastronomie",13
+141,"Théâtre, poésie, musique",13
+142,Théâtre et littérature,13
+143,Cultures urbaines,11
+144,"Musique, sport et écologie",13
+145,Musiques actuelles et vins naturels,13
+146,Musique et moto,13
+147,Moto et musique,13

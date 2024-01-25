@@ -1,8 +1,15 @@
 package fr.uga.m1miage.example.response;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Builder;
+import lombok.Data;
+
 import java.util.List;
 
+
+@Data
+@Builder
 public class UtilisateurDTO {
     private long id ;
 
@@ -12,6 +19,7 @@ public class UtilisateurDTO {
     private String email ;
     private String mdp ;
 
-   private List<PanierDTO> panier ;
+    @JsonIgnore
+    private List<PanierDTO> panier ;
     private TypeUtilisateur typeUtilisateur ;
 }
