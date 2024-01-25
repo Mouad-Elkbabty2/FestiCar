@@ -2,6 +2,10 @@ package fr.uga.m1miage.example.endpoint;
 
 
 import fr.uga.m1miage.example.error.EntityNotFound;
+import fr.uga.m1miage.example.request.CreatePanierRequest;
+import fr.uga.m1miage.example.request.CreateUtilisateurRequest;
+import fr.uga.m1miage.example.response.PanierDTO;
+import fr.uga.m1miage.example.response.UtilisateurDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -10,6 +14,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Tag(name = "Panier tag")
 @CrossOrigin
@@ -24,5 +30,11 @@ public interface PanierEndPoint {
             content = @Content(schema = @Schema(implementation = EntityNotFound.class),mediaType = MediaType.APPLICATION_JSON_VALUE))
     @ResponseStatus(HttpStatus.OK)
     void deletePanier(@PathVariable long id) ;
+    @PostMapping("{utilisateurId}")
+    @Operation(description = "Création d'une entité PanierDTO ")
+    @ApiResponse(responseCode = "201", description = "L'entité Panier a bien été créée.")
+
+    @ResponseStatus(HttpStatus.CREATED)
+    PanierDTO createPanier(@PathVariable final long utilisateurId,@Valid @RequestBody CreatePanierRequest createPanierRequest) throws  EntityNotFound ;
 
 }

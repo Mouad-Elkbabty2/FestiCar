@@ -1,6 +1,7 @@
 package fr.uga.m1miage.example.response;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
 
