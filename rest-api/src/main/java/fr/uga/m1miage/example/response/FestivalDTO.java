@@ -15,9 +15,9 @@ public class FestivalDTO {
 
     private String nomFestival;
 
-    private Date dateDebut;
+    private String dateDebut;
 
-    private Date dateFin;
+    private String dateFin;
 
     private double tarif;
 

@@ -13,4 +13,8 @@ public interface FestivalRepository extends JpaRepository<Festival,Long> {
     long deleteFestivalByIdFestival(final long idFestival) ;
 
     List<Festival> findAllByCommune(int codeInsee);
+    List<Festival> getAllFestivals();
+
+    Festival findFestivalByNomFestival(final String festival);
+
 }
