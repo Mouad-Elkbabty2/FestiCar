@@ -1,9 +1,10 @@
 package fr.uga.m1miage.example.Component;
 
 
+import fr.uga.m1miage.example.Exception.EntityNotFound;
 import fr.uga.m1miage.example.mapper.FestivalMapper;
+import fr.uga.m1miage.example.models.Festival;
 import fr.uga.m1miage.example.repository.FestivalRepository;
-import fr.uga.m1miage.example.response.FestivalDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -16,8 +17,13 @@ public class FestivalComponent {
     private final FestivalRepository festivalRepository ;
     private final FestivalMapper festivalMapper ;
 
-    public List<FestivalDTO> getFestivals()  {
-
-        return null;
+    public List<Festival> getFestivals() throws EntityNotFound {
+        List<Festival> festivals = festivalRepository.getAllFestivals();
+        if(festivals.size() == 0){
+            throw new EntityNotFound("Festivals n'exisite pas");
+        }
+        return festivals;
     }
+
+
 }

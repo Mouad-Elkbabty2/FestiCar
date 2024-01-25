@@ -1,6 +1,7 @@
 package fr.uga.m1miage.example.request;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import fr.uga.m1miage.example.response.EtatPanier;
 import fr.uga.m1miage.example.response.UtilisateurDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -20,6 +21,7 @@ public class CreatePanierRequest {
 
     private double total;
 
+    @JsonIgnore
     private UtilisateurDTO utilisateur ;
 
     private EtatPanier etat ;
