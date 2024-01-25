@@ -13,7 +13,7 @@ import java.util.List;
 public class Commune {
 
     @Id
-    private int codeInsee;
+    private String codeInsee;
 
     private String nomCommune;
 

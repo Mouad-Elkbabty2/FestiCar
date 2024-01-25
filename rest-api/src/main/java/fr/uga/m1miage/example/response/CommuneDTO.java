@@ -8,7 +8,7 @@ import java.util.List;
 @Builder
 @Data
 public class CommuneDTO {
-    private int codeInsee;
+    private String codeInsee;
 
     private String nomCommune;
 

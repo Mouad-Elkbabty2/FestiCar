@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DepartementRepository extends JpaRepository<Departement, String> {
-
+    Departement getDepartementByNumDepartement(String numDepart);
 }

@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SousDomaineRepository extends JpaRepository<SousDomaine, String> {
-
+    SousDomaine getSousDomaineByNomSousDomaine(String nomSousDomaine);
 }

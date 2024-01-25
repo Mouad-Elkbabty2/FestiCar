@@ -21,11 +21,9 @@ public class Festival {
 
     private String nomFestival;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date dateDebut;
+    private String dateDebut;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date dateFin;
+    private String dateFin;
 
     private double tarif;
 

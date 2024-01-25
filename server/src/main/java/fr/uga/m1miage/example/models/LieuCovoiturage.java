@@ -19,7 +19,7 @@ public class LieuCovoiturage {
 
     private String adresseLieu ;
 
-    private int codeInsee ;
+    private String codeInsee ;
 
 
     private double longitude ;
