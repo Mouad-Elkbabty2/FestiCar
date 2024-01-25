@@ -17,7 +17,7 @@ public class CovoiturageDTO {
     private String couleur ;
     private String marque ;
 
-    private UtilisateurDTO utilisateur ;
+/*    private UtilisateurDTO utilisateur ;*/
     private FestivalDTO festival ;
     private int nbPlacesReservées ;
 

@@ -19,7 +19,7 @@ public class UtilisateurDTO {
     private String email ;
     private String mdp ;
 
-    @JsonIgnore
-    private List<PanierDTO> panier ;
+/*    @JsonIgnore
+    private List<PanierDTO> panier ;*/
     private TypeUtilisateur typeUtilisateur ;
 }

@@ -32,8 +32,8 @@ public class FestivalDTO {
 
     private SousDomaineDTO sousDomaine;
 
-    @JsonIgnore
-    private List<CovoiturageDTO> covoiturageList ;
+/*    @JsonIgnore
+    private List<CovoiturageDTO> covoiturageList ;*/
 
     private CommuneDTO commune ;
 }

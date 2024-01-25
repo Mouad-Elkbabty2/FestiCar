@@ -6,6 +6,7 @@ import fr.uga.m1miage.example.mapper.FestivalMapper;
 import fr.uga.m1miage.example.models.Festival;
 import fr.uga.m1miage.example.repository.FestivalRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
