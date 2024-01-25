@@ -19,4 +19,6 @@ public interface FestivalRepository extends JpaRepository<Festival,Long> {
 
     Festival findFestivalByNomFestival(final String festival);
 
+    Festival getFestivalByIdFestival(final long idF);
+
 }

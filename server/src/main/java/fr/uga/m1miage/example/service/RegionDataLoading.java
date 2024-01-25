@@ -13,24 +13,24 @@ import java.util.List;
 @AllArgsConstructor
 public class RegionDataLoading {
 
+    private final CovoiturageRepository covoiturageRepository;
+    private final FestivalRepository festivalRepository;
     private final UtilisateurRepository utilisateurRepository;
 
     public void chargerDonneesDepuisCSV(String cheminVersCSV) {
         try (CSVReader reader = new CSVReader(new FileReader(cheminVersCSV))) {
             List<String[]> donnees = reader.readAll();
             for (String[] ligne : donnees) {
-                Utilisateur utilisateur = new Utilisateur();
-                utilisateur.setNom(ligne[0]);
-                utilisateur.setPrenom(ligne[1]);
-                utilisateur.setTelephone(ligne[2]);
-                utilisateur.setEmail(ligne[3]);
-                utilisateur.setMdp(ligne[4]);
-                if(Integer.parseInt(ligne[5])== 0){
-                    utilisateur.setTypeUtilisateur(TypeUtilisateur.PASSAGER);
-                }else{
-                    utilisateur.setTypeUtilisateur(TypeUtilisateur.CONDUCTEUR);
-                }
-                utilisateurRepository.save(utilisateur);
+                Covoiturage covoiturage = new Covoiturage();
+                covoiturage.setUtilisateur(utilisateurRepository.getUtilisateurById(Long.parseLong(ligne[0])));
+                covoiturage.setFestival(festivalRepository.getFestivalByIdFestival(Long.parseLong(ligne[1])));
+                covoiturage.setTarif(Double.parseDouble(ligne[2]));
+                covoiturage.setMarque(ligne[3]);
+                covoiturage.setModelVoiture(ligne[4]);
+                covoiturage.setNbPlaces(Integer.parseInt(ligne[5]));
+                covoiturage.setNbPlacesReservées(Integer.parseInt(ligne[6]));
+                covoiturage.setCouleur(ligne[8]);
+                covoiturageRepository.save(covoiturage);
             }
         } catch (Exception e) {
             e.printStackTrace();
