@@ -19,7 +19,8 @@ public class PanierDTO {
 
     private double total;
 
-    private UtilisateurDTO utilisateur ;
+/*    @JsonIgnore
+    private UtilisateurDTO utilisateur ;*/
 
     private EtatPanier etat ;
 }

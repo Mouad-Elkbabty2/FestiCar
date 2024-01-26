@@ -38,4 +38,11 @@ public class PanierComponent {
         return panierMapper.entityToDTO(panier);
     }
 
+    public Panier getPanier(final Long panierId) throws EntityNotFound {
+        Panier panier = panierRepository.findPanierByIdPanier(panierId);
+        if (panier == null) {
+            throw new EntityNotFound("Panier n'existe pas dans la bdd");
+        }
+        return panier;
+    }
 }

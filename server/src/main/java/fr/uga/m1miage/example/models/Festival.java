@@ -1,12 +1,11 @@
 package fr.uga.m1miage.example.models;
 
-import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 @Getter
@@ -41,6 +40,7 @@ public class Festival {
     private SousDomaine sousDomaine;
 
     @OneToMany(mappedBy = "festival")
+    @JsonIgnore
     private List<Covoiturage> covoiturageList ;
 
     @ManyToOne

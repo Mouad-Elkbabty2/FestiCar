@@ -32,6 +32,16 @@ public class PanierService {
     @Transactional
     public PanierDTO createPanier(final long utilitsateurId , final CreatePanierRequest request)  {
         Panier newPanier = panierMapper.DtoToEntityCreation(request);
-        return panierMapper.entityToDTO(newPanier);
+        return panierComponent.createPanier(utilitsateurId,newPanier);
+    }
+
+    @SneakyThrows
+    @Transactional
+    public PanierDTO getPanier(final long id)  {
+        try{
+            return panierMapper.entityToDTO(panierComponent.getPanier(id));
+        }catch(EntityNotFound e){
+            throw new EntityNotFound("Impossible de charger l'entité panier");
+        }
     }
 }

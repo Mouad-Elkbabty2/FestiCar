@@ -17,4 +17,13 @@ public class FestivalController implements FestivalEndPoint {
     public List<FestivalDTO> getAllFestivals() {
         return festivalService.getAllFestivals();
     }
+
+    @Override
+    public List<FestivalDTO> getFestivalsByCriteria(String nomFestival, String dateDebut, String dateFin, Double tarif, String sousDomaine) {
+        return festivalService.getAllFestivalsByCriteria(nomFestival,
+                                                        dateDebut,
+                                                        dateFin,
+                                                        tarif,
+                                                        sousDomaine);
+    }
 }

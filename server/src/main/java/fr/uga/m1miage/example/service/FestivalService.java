@@ -11,6 +11,7 @@ import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -28,13 +29,37 @@ public class FestivalService {
     public List<FestivalDTO> getAllFestivals(){
         try{
             List<Festival> festivals = festivalComponent.getFestivals();
-            List<FestivalDTO> festivalDTOS = festivalMapper.dtoToEntityList(festivals);
-    return festivalDTOS;
+            List<FestivalDTO> festivalDTOS = new ArrayList<>();
+            for(Festival festival:festivals){
+                festivalDTOS.add(festivalMapper.entityToDTO(festival));
+            }
+            return festivalDTOS;
         }catch(EntityNotFound e){
             throw new EntityNotFound("Impossible de charger les festivals ");
         }
     }
-
+    @SneakyThrows
+    @Transactional
+    public List<FestivalDTO> getAllFestivalsByCriteria(String nomFestival,
+                                                       String dateDebut,
+                                                       String dateFin,
+                                                       Double tarif,
+                                                       String sousDomaine){
+        try{
+            List<Festival> festivals = festivalComponent.getFestivalsByCriteria( nomFestival,
+                                                                                 dateDebut,
+                                                                                 dateFin,
+                                                                                 tarif,
+                                                                                 sousDomaine);
+            List<FestivalDTO> festivalDTOS = new ArrayList<>();
+            for(Festival festival:festivals){
+                festivalDTOS.add(festivalMapper.entityToDTO(festival));
+            }
+            return festivalDTOS;
+        }catch(EntityNotFound e){
+            throw new EntityNotFound("Impossible de charger les festivals ");
+        }
+    }
 
 
 }
