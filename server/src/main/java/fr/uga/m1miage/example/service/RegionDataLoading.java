@@ -29,7 +29,7 @@ public class RegionDataLoading {
                 covoiturage.setModelVoiture(ligne[4]);
                 covoiturage.setNbPlaces(Integer.parseInt(ligne[5]));
                 covoiturage.setNbPlacesReservées(Integer.parseInt(ligne[6]));
-                covoiturage.setCouleur(ligne[8]);
+                covoiturage.setCouleur(ligne[7]);
                 covoiturageRepository.save(covoiturage);
             }
         } catch (Exception e) {

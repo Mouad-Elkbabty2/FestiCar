@@ -3,6 +3,7 @@ package fr.uga.m1miage.example.models;
 
 import lombok.*;
 
+import javax.naming.Name;
 import javax.persistence.*;
 
 @Entity
@@ -18,6 +19,7 @@ public class LieuCovoiturage {
     private String nomLieu ;
 
     private String adresseLieu ;
+
 
     private String codeInsee ;
 

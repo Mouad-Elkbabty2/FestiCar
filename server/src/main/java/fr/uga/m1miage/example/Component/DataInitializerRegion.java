@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class DataInitializerRegion  {
+public class DataInitializerRegion implements CommandLineRunner {
     private final RegionDataLoading regionDataLoading;
 
 
@@ -20,4 +20,10 @@ public class DataInitializerRegion  {
         this.regionDataLoading = regionDataLoading;
     }
 
+    @Override
+    public void run(String... args) {
+        for (String cheminVersCSV : cheminsVersCSV) {
+            regionDataLoading.chargerDonneesDepuisCSV(cheminVersCSV);
+        }
+    }
 }
