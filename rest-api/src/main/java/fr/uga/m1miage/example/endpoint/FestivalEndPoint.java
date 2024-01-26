@@ -17,7 +17,7 @@ import java.util.List;
 @RequestMapping(value="api/" , produces = "application/json")
 public interface FestivalEndPoint {
 
-    @GetMapping("festivals")
+    @GetMapping("allFestivals")
     @Operation(summary = "Get all Festivals ")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Found the Festivals",
@@ -28,5 +28,23 @@ public interface FestivalEndPoint {
             @ApiResponse(responseCode = "404", description = "Festivals not found",
                     content = @Content) })
     List<FestivalDTO> getAllFestivals() ;
+
+    @GetMapping("festivals/")
+    @Operation(summary = "Search for Festivals based on criteria")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the Festivals",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = FestivalDTO.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid query",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "Festivals not found",
+                    content = @Content) })
+    List<FestivalDTO> getFestivalsByCriteria(
+            @RequestParam(name = "nomFestival", required = false) String nomFestival,
+            @RequestParam(name = "dateDebut", required = false) String dateDebut,
+            @RequestParam(name = "dateFin", required = false) String dateFin,
+            @RequestParam(name = "tarif", required = false) Double tarif,
+            @RequestParam(name = "sousDomaine", required = false) String sousDomaine
+    );
 
 }

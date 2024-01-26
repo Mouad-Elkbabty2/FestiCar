@@ -7,6 +7,7 @@ import fr.uga.m1miage.example.models.Festival;
 import fr.uga.m1miage.example.repository.FestivalRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -26,5 +27,16 @@ public class FestivalComponent {
         return festivals;
     }
 
+    public List<Festival> getFestivalsByCriteria( String nomFestival,
+                                                  String dateDebut,
+                                                  String dateFin,
+                                                   Double tarif,
+                                                   String sousDomaine) throws EntityNotFound {
+        List<Festival> festivals = festivalRepository.findFestivalsByCriteria(nomFestival,dateDebut,dateFin,tarif,sousDomaine);
+        if(festivals.size() == 0){
+            throw new EntityNotFound("Festivals n'exisite pas");
+        }
+        return festivals;
+    }
 
 }
