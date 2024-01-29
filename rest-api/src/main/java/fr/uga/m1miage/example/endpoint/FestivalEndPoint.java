@@ -1,7 +1,6 @@
 package fr.uga.m1miage.example.endpoint;
 
 import fr.uga.m1miage.example.response.FestivalDTO;
-import fr.uga.m1miage.example.response.PanierDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -11,7 +10,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
 
-import java.awt.print.Pageable;
 import java.util.List;
 
 @Tag(name = "Festival tag")

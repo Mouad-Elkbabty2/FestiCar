@@ -37,4 +37,6 @@ public class FestivalController implements FestivalEndPoint {
     public FestivalDTO getFestivalById(Long id) {
         return festivalService.getFestivalById(id);
     }
+
+
 }
