@@ -64,5 +64,15 @@ public class FestivalService {
         }
     }
 
+    @SneakyThrows
+    @Transactional
+    public FestivalDTO getFestivalById(final Long id){
+        try{
+            return festivalMapper.entityToDTO(festivalComponent.getFestivalById(id));
+        }catch(EntityNotFound e){
+            throw new EntityNotFound("Aucun festival ne possède "+id+" comme id");
+        }
+    }
+
 
 }

@@ -40,4 +40,12 @@ public class FestivalComponent {
         return festivals;
     }
 
+    public Festival getFestivalById(final Long id) throws EntityNotFound{
+        Festival festival = festivalRepository.getFestivalByIdFestival(id);
+        if (festival == null){
+            throw new EntityNotFound("Panier n'existe pas dans la bdd");
+        }
+        return festival;
+    }
+
 }
