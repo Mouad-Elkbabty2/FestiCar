@@ -45,7 +45,7 @@ public interface FestivalEndPoint {
             @RequestParam(name = "dateDebut", required = false) String dateDebut,
             @RequestParam(name = "dateFin", required = false) String dateFin,
             @RequestParam(name = "tarif", required = false) Double tarif,
-            @RequestParam(name = "sousDomaine", required = false) String sousDomaine
+            @RequestParam(name = "sousDomaine", required = false) String sousDomaine, int numPage , int taille
 
     );
 
