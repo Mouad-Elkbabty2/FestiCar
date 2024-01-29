@@ -1,6 +1,8 @@
 package fr.uga.m1miage.example.repository;
 
 import fr.uga.m1miage.example.models.Festival;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -28,12 +30,13 @@ public interface FestivalRepository extends JpaRepository<Festival,Long> {
             "AND (:dateFin IS NULL OR f.dateFin = :dateFin) " +
             "AND (:tarif IS NULL OR f.tarif = :tarif) " +
             "AND (:sousDomaine IS NULL OR LOWER(f.sousDomaine.nomSousDomaine) LIKE CONCAT('%', LOWER(:sousDomaine), '%'))")
-    List<Festival> findFestivalsByCriteria(
+    Page<Festival> findFestivalsByCriteria(
             @Param("nomFestival") String nomFestival,
             @Param("dateDebut") String dateDebut,
             @Param("dateFin") String dateFin,
             @Param("tarif") Double tarif,
-            @Param("sousDomaine") String sousDomaine);
+            @Param("sousDomaine") String sousDomaine,
+            Pageable pageable);
 
 
 

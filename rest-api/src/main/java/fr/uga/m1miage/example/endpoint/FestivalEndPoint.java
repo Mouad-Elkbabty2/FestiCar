@@ -9,6 +9,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
+
+import java.awt.print.Pageable;
 import java.util.List;
 
 @Tag(name = "Festival tag")
@@ -45,6 +47,7 @@ public interface FestivalEndPoint {
             @RequestParam(name = "dateFin", required = false) String dateFin,
             @RequestParam(name = "tarif", required = false) Double tarif,
             @RequestParam(name = "sousDomaine", required = false) String sousDomaine
+
     );
 
 }

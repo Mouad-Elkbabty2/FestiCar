@@ -4,6 +4,8 @@ import fr.uga.m1miage.example.endpoint.FestivalEndPoint;
 import fr.uga.m1miage.example.response.FestivalDTO;
 import fr.uga.m1miage.example.service.FestivalService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -18,12 +20,16 @@ public class FestivalController implements FestivalEndPoint {
         return festivalService.getAllFestivals();
     }
 
+
+
     @Override
     public List<FestivalDTO> getFestivalsByCriteria(String nomFestival, String dateDebut, String dateFin, Double tarif, String sousDomaine) {
+        Pageable pageable = PageRequest.of(0, 8);
+
         return festivalService.getAllFestivalsByCriteria(nomFestival,
                                                         dateDebut,
                                                         dateFin,
                                                         tarif,
-                                                        sousDomaine);
+                                                        sousDomaine,pageable);
     }
 }
