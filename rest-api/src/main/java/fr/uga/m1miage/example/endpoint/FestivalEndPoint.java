@@ -1,6 +1,7 @@
 package fr.uga.m1miage.example.endpoint;
 
 import fr.uga.m1miage.example.response.FestivalDTO;
+import fr.uga.m1miage.example.response.PanierDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -46,5 +47,20 @@ public interface FestivalEndPoint {
             @RequestParam(name = "tarif", required = false) Double tarif,
             @RequestParam(name = "sousDomaine", required = false) String sousDomaine
     );
+
+
+    @GetMapping("Festival/{id}")
+    @Operation(summary = "Get festival by ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Festival fond",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = FestivalDTO.class)) }),
+            @ApiResponse(responseCode = "400", description = "The given id is invalid",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "Panier not found",
+                    content = @Content) })
+    FestivalDTO getFestivalById(@PathVariable("id") Long id);
+
+
 
 }
