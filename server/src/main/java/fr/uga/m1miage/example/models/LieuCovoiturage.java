@@ -13,16 +13,15 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class LieuCovoiturage {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idLieu ;
-
+    private String idLieu ;
     private String nomLieu ;
 
-    private String adresseLieu ;
+    @Enumerated(EnumType.ORDINAL)
+    private TypeLieu typeLieu ;
 
-
-    private String codeInsee ;
-
+    @ManyToOne
+    @JoinColumn(name="codeInsee")
+    private Commune codeInsee ;
 
     private double longitude ;
     private double latitude ;
