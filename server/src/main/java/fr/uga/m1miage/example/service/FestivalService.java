@@ -8,6 +8,8 @@ import fr.uga.m1miage.example.models.Festival;
 import fr.uga.m1miage.example.response.FestivalDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -44,13 +46,14 @@ public class FestivalService {
                                                        String dateDebut,
                                                        String dateFin,
                                                        Double tarif,
-                                                       String sousDomaine){
+                                                       String sousDomaine, Pageable pageable){
         try{
-            List<Festival> festivals = festivalComponent.getFestivalsByCriteria( nomFestival,
+            Page<Festival> festivalsPage = festivalComponent.getFestivalsByCriteria( nomFestival,
                                                                                  dateDebut,
                                                                                  dateFin,
                                                                                  tarif,
-                                                                                 sousDomaine);
+                                                                                 sousDomaine,pageable);
+            List<Festival> festivals = festivalsPage.getContent();
             List<FestivalDTO> festivalDTOS = new ArrayList<>();
             for(Festival festival:festivals){
                 festivalDTOS.add(festivalMapper.entityToDTO(festival));

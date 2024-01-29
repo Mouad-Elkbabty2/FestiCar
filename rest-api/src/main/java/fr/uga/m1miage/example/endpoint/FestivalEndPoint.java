@@ -1,7 +1,6 @@
 package fr.uga.m1miage.example.endpoint;
 
 import fr.uga.m1miage.example.response.FestivalDTO;
-import fr.uga.m1miage.example.response.PanierDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -9,6 +8,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 
@@ -46,6 +46,7 @@ public interface FestivalEndPoint {
             @RequestParam(name = "dateFin", required = false) String dateFin,
             @RequestParam(name = "tarif", required = false) Double tarif,
             @RequestParam(name = "sousDomaine", required = false) String sousDomaine
+
     );
 
 
