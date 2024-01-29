@@ -23,8 +23,9 @@ public class FestivalController implements FestivalEndPoint {
 
 
     @Override
-    public List<FestivalDTO> getFestivalsByCriteria(String nomFestival, String dateDebut, String dateFin, Double tarif, String sousDomaine) {
-        Pageable pageable = PageRequest.of(0, 8);
+    public List<FestivalDTO> getFestivalsByCriteria(String nomFestival, String dateDebut, String dateFin, Double tarif, String sousDomaine,int numPage , int taille) {
+        Pageable pageable = PageRequest.of(numPage, taille);
+
 
         return festivalService.getAllFestivalsByCriteria(nomFestival,
                                                         dateDebut,

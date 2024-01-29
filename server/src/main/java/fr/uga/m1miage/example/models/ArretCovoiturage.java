@@ -19,4 +19,7 @@ public class ArretCovoiturage {
     @ManyToOne
     private LieuCovoiturage lieuCovoiturage;
 
+    private Boolean estDepart ;
+
+
 }

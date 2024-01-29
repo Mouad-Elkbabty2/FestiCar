@@ -4,6 +4,8 @@ import javax.persistence.*;
 
 import lombok.*;
 
+import java.util.List;
+
 
 @Entity
 @AllArgsConstructor
@@ -34,10 +36,11 @@ public class Covoiturage {
     @ManyToOne
     @JoinColumn(name="festival_id")
 
+
     private Festival festival ;
     private int nbPlacesReservées ;
 
-
-
+    @OneToMany(mappedBy = "arretsCovoitId.idCovoiturage")
+            private List<ArretCovoiturage> arretCovoiturageList ;
 
 }

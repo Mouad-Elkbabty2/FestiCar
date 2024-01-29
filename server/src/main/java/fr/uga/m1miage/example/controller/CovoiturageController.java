@@ -9,8 +9,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.ConstraintValidatorContext;
-
 import java.util.List;
 
 @RestController
@@ -28,4 +26,15 @@ public class CovoiturageController implements CovoiturageEndPoint {
         Pageable pageable = PageRequest.of(numPage,taillePage);
         return covoiturageService.getCovoiturageByFestivalId(id,pageable);
     }
+
+/*    @Override
+    public List<CovoiturageDTO> filterCovoiturages(String nomFestival, String dateDebut, String dateFin, Double tarif, String sousDomaine) {
+        Pageable pageable = PageRequest.of(0, 8);
+
+        return covoiturageService.getAllFestivalsByCriteria(nomFestival,
+                dateDebut,
+                dateFin,
+                tarif,
+                sousDomaine,pageable);
+    }*/
 }
