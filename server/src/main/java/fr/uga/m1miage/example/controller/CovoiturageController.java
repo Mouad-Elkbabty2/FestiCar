@@ -27,14 +27,18 @@ public class CovoiturageController implements CovoiturageEndPoint {
         return covoiturageService.getCovoiturageByFestivalId(id,pageable);
     }
 
-/*    @Override
-    public List<CovoiturageDTO> filterCovoiturages(String nomFestival, String dateDebut, String dateFin, Double tarif, String sousDomaine) {
-        Pageable pageable = PageRequest.of(0, 8);
+    @Override
+    public List<CovoiturageDTO> filterCovoiturages(String nomCommune,
+                                                   String modelVoiture,
+                                                   Integer placesDispo,
+                                                   Double budget,
+                                                   int numPage , int taille) {
+        Pageable pageable = PageRequest.of(numPage, taille);
 
-        return covoiturageService.getAllFestivalsByCriteria(nomFestival,
-                dateDebut,
-                dateFin,
-                tarif,
-                sousDomaine,pageable);
-    }*/
+        return covoiturageService.filterCovoiurage(nomCommune,
+                modelVoiture,
+                placesDispo,
+                budget,
+               pageable);
+    }
 }

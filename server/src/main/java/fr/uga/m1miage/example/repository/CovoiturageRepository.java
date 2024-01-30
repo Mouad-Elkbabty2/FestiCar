@@ -17,17 +17,18 @@ public interface CovoiturageRepository extends JpaRepository<Covoiturage, Long> 
 
     Page<Covoiturage> getCovoiturageByFestival (Festival id, Pageable pageable);
 
-/*    @Query("SELECT c FROM Covoiturage c WHERE " +
-            "(:villeDepart IS NULL OR LOWER(c.villeDepart) LIKE CONCAT('%', LOWER(:villeDepart), '%')) " +
-            "AND (:typeVehicule IS NULL OR LOWER(c.modelVoiture) LIKE CONCAT('%', LOWER(:typeVehicule), '%')) " +
-            "AND (:placesDispo IS NULL OR c.placesDispo >= :placesDispo) " +
-            "AND (:budget IS NULL OR c.budget <= :budget)")
+    @Query("SELECT c.arretsCovoitId.idCovoiturage FROM ArretCovoiturage c WHERE " +
+            " (:nomCommune IS NULL OR LOWER(c.lieuCovoiturage.codeInsee.nomCommune) LIKE CONCAT('%', LOWER(:nomCommune), '%')) " +
+            "AND c.estDepart = true  " +
+            "AND (:modelVoiture IS NULL OR LOWER(c.arretsCovoitId.idCovoiturage.modelVoiture) LIKE CONCAT('%', LOWER(:modelVoiture), '%')) " +
+            "AND (:placesDispo IS NULL OR ((c.arretsCovoitId.idCovoiturage.nbPlaces ) - (c.arretsCovoitId.idCovoiturage.nbPlacesReservées)) >= :placesDispo) " +
+            "AND (:budget IS NULL OR c.arretsCovoitId.idCovoiturage.tarif <= :budget)")
     Page<Covoiturage> filterCovoiturages(
-            String villeDepart,
-            String typeVehicule,
+            String nomCommune,
+            String modelVoiture,
             Integer placesDispo,
             Double budget,
-            Pageable pageable);*/
+            Pageable pageable);
 
 
 }

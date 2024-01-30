@@ -4,7 +4,9 @@ import fr.uga.m1miage.example.Component.CovoiturageComponent;
 import fr.uga.m1miage.example.Exception.EntityNotFound;
 import fr.uga.m1miage.example.mapper.CovoiturageMapper;
 import fr.uga.m1miage.example.models.Covoiturage;
+import fr.uga.m1miage.example.models.Festival;
 import fr.uga.m1miage.example.response.CovoiturageDTO;
+import fr.uga.m1miage.example.response.FestivalDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.data.domain.Page;
@@ -43,5 +45,30 @@ public class CovoiturageService {
             throw new EntityNotFound("Aucun ;covoiturage n'existe pour ce festival");
         }
     }
+    @SneakyThrows
+    @Transactional
+    public List<CovoiturageDTO> filterCovoiurage(String nomCommune,
+                                                 String modelVoiture,
+                                                 Integer placesDispo,
+                                                 Double budget,
+                                                 Pageable pageable){
+        try{
+            Page<Covoiturage> covoiturages = covoiturageComponent.getCovoituragesCriteria( nomCommune,
+                    modelVoiture,
+                    placesDispo,
+                    budget,
+                    pageable);
+            List<Covoiturage> covoiturageList = covoiturages.getContent();
+            List<CovoiturageDTO> covoiturageDTOS = new ArrayList<>();
+            for(Covoiturage covoiturage:covoiturageList){
+                CovoiturageDTO covoiturageDTO = covoiturageMapper.entityToDTO(covoiturage);
+                covoiturageDTOS.add(covoiturageDTO);
+            }
+            return covoiturageDTOS;
+        }catch(EntityNotFound e){
+            throw new EntityNotFound("Impossible de charger les covoitruages ");
+        }
+    }
+
 
 }

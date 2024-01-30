@@ -7,4 +7,5 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring",uses = {UtilisateurMapper.class})
 public interface CovoiturageMapper {
     CovoiturageDTO entityToDTO(Covoiturage covoiturage);
+
 }
