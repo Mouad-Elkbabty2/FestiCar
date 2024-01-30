@@ -9,6 +9,7 @@ import lombok.Data;
 public class CovoiturageDTO {
     private long idCovoiturage;
 
+
     private int nbPlaces;
 
     private double tarif;
@@ -20,5 +21,6 @@ public class CovoiturageDTO {
     private UtilisateurDTO utilisateur ;
     private FestivalDTO festival ;
     private int nbPlacesReservées ;
+
 
 }

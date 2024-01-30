@@ -21,5 +21,4 @@ public class ArretCovoiturage {
 
     private Boolean estDepart ;
 
-
 }

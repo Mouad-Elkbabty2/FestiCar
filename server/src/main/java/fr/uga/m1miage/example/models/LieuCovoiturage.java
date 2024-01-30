@@ -12,6 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class LieuCovoiturage {
+
     @Id
     private String idLieu ;
     private String nomLieu ;

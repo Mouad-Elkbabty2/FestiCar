@@ -21,5 +21,4 @@ public class ArretCovoitId implements Serializable {
     private Covoiturage idCovoiturage;
 
 
-
 }
