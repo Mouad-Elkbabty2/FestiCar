@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LieuCovoiturageRepository extends JpaRepository<LieuCovoiturage, String> {
+
+    LieuCovoiturage getLieuCovoiturageByIdLieu(String idLieu);
 }

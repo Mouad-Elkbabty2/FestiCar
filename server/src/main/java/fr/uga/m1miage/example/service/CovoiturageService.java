@@ -25,10 +25,7 @@ public class CovoiturageService {
 
     @SneakyThrows
     @Transactional
-    public List<String> getModeleVoiture(){
-        List<String> modeles = covoiturageComponent.getModeleVoiture();
-        return  modeles;
-    }
+    public List<String> getModeleVoiture(){return covoiturageComponent.getModeleVoiture();}
 
     @SneakyThrows
     @Transactional
