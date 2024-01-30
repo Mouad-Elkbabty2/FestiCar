@@ -34,4 +34,14 @@ public class CovoiturageComponent {
 
         return  covoits;
     }
+
+    public Page<Covoiturage> getCovoituragesCriteria( String nomCommune,
+                                             String modelVoiture,
+                                             Integer placesDispo,
+                                             Double budget,
+                                             Pageable pageable) throws EntityNotFound {
+        Page<Covoiturage> covoiturages = covoiturageRepository.filterCovoiturages(nomCommune,modelVoiture,placesDispo,budget,pageable);
+
+        return covoiturages;
+    }
 }

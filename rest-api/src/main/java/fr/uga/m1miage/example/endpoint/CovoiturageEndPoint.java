@@ -10,7 +10,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Pageable;
 import java.util.List;
 @Tag(name = "Covoiturage")
 @CrossOrigin
@@ -39,9 +38,9 @@ public interface CovoiturageEndPoint {
             @ApiResponse(responseCode = "404", description = "models not Found",
                     content = @Content) })
     List<CovoiturageDTO> getCovoiturageByFestivalId(@PathVariable("festivalId") Long id, @RequestParam int numPage , @RequestParam int taillePage);
-}
 
-/*    @GetMapping("covoituragesCriteria")
+
+    @GetMapping("covoituragesCriteria")
     @Operation(summary = "Filter Covoiturages by Criteria ")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Found the Covoiturages",
@@ -52,9 +51,9 @@ public interface CovoiturageEndPoint {
             @ApiResponse(responseCode = "404", description = "Covoiturages not found",
                     content = @Content)})
     List<CovoiturageDTO> filterCovoiturages(
-            @RequestParam(required = false) String villeDepart,
-            @RequestParam(required = false) String typeVehicule,
+            @RequestParam(required = false) String nomCommune,
+            @RequestParam(required = false) String modelVoiture,
             @RequestParam(required = false) Integer placesDispo,
             @RequestParam(required = false) Double budget,
-            Pageable pageable);
-}*/
+            int numPage , int taille);
+}
