@@ -21,7 +21,8 @@ public interface CovoiturageRepository extends JpaRepository<Covoiturage, Long> 
     Covoiturage getCovoiturageByIdCovoiturage(long idCovoiturage);
 
     @Query("SELECT c.arretsCovoitId.idCovoiturage FROM ArretCovoiturage c WHERE " +
-            " (:nomCommune IS NULL OR LOWER(c.lieuCovoiturage.codeInsee.nomCommune) LIKE CONCAT('%', LOWER(:nomCommune), '%')) " +
+            " c.arretsCovoitId.idCovoiturage.festival.idFestival = :festivalId " +
+            "AND (:nomCommune IS NULL OR LOWER(c.lieuCovoiturage.codeInsee.nomCommune) LIKE CONCAT('%', LOWER(:nomCommune), '%')) " +
             "AND c.estDepart = true  " +
             "AND (:modelVoiture IS NULL OR LOWER(c.arretsCovoitId.idCovoiturage.modelVoiture) LIKE CONCAT('%', LOWER(:modelVoiture), '%')) " +
             "AND (:placesDispo IS NULL OR ((c.arretsCovoitId.idCovoiturage.nbPlaces ) - (c.arretsCovoitId.idCovoiturage.nbPlacesReservées)) >= :placesDispo) " +
@@ -31,7 +32,8 @@ public interface CovoiturageRepository extends JpaRepository<Covoiturage, Long> 
             String modelVoiture,
             Integer placesDispo,
             Double budget,
-            Pageable pageable);
+            Pageable pageable,
+            long festivalId);
 
 
 

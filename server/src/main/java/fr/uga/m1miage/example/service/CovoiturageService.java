@@ -1,6 +1,7 @@
 package fr.uga.m1miage.example.service;
 
 import fr.uga.m1miage.example.Component.CovoiturageComponent;
+import fr.uga.m1miage.example.Component.FestivalComponent;
 import fr.uga.m1miage.example.Exception.EntityNotFound;
 import fr.uga.m1miage.example.mapper.CovoiturageMapper;
 import fr.uga.m1miage.example.models.Covoiturage;
@@ -21,6 +22,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CovoiturageService {
     private final CovoiturageComponent covoiturageComponent;
+    private final FestivalComponent festivalComponent;
     private final CovoiturageMapper covoiturageMapper;
 
     @SneakyThrows
@@ -48,13 +50,14 @@ public class CovoiturageService {
                                                  String modelVoiture,
                                                  Integer placesDispo,
                                                  Double budget,
-                                                 Pageable pageable){
+                                                 Pageable pageable,long festivaId){
         try{
+            Festival festival = festivalComponent.getFestivalById(festivaId);
             Page<Covoiturage> covoiturages = covoiturageComponent.getCovoituragesCriteria( nomCommune,
                     modelVoiture,
                     placesDispo,
                     budget,
-                    pageable);
+                    pageable, festivaId);
             List<Covoiturage> covoiturageList = covoiturages.getContent();
             List<CovoiturageDTO> covoiturageDTOS = new ArrayList<>();
             for(Covoiturage covoiturage:covoiturageList){

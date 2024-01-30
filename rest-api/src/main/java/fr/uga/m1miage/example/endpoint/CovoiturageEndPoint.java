@@ -55,5 +55,5 @@ public interface CovoiturageEndPoint {
             @RequestParam(required = false) String modelVoiture,
             @RequestParam(required = false) Integer placesDispo,
             @RequestParam(required = false) Double budget,
-            int numPage , int taille);
+            int numPage , int taille, long festivalId);
 }

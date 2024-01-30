@@ -2,6 +2,7 @@ package fr.uga.m1miage.example.controller;
 
 import fr.uga.m1miage.example.endpoint.CovoiturageEndPoint;
 import fr.uga.m1miage.example.models.Covoiturage;
+import fr.uga.m1miage.example.models.Festival;
 import fr.uga.m1miage.example.response.CovoiturageDTO;
 import fr.uga.m1miage.example.service.CovoiturageService;
 import lombok.RequiredArgsConstructor;
@@ -32,13 +33,13 @@ public class CovoiturageController implements CovoiturageEndPoint {
                                                    String modelVoiture,
                                                    Integer placesDispo,
                                                    Double budget,
-                                                   int numPage , int taille) {
+                                                   int numPage , int taille,long festivalId) {
         Pageable pageable = PageRequest.of(numPage, taille);
 
         return covoiturageService.filterCovoiurage(nomCommune,
                 modelVoiture,
                 placesDispo,
                 budget,
-               pageable);
+               pageable, festivalId);
     }
 }

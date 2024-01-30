@@ -39,8 +39,8 @@ public class CovoiturageComponent {
                                              String modelVoiture,
                                              Integer placesDispo,
                                              Double budget,
-                                             Pageable pageable) throws EntityNotFound {
-        Page<Covoiturage> covoiturages = covoiturageRepository.filterCovoiturages(nomCommune,modelVoiture,placesDispo,budget,pageable);
+                                             Pageable pageable,long festivalId) throws EntityNotFound {
+        Page<Covoiturage> covoiturages = covoiturageRepository.filterCovoiturages(nomCommune,modelVoiture,placesDispo,budget,pageable,festivalId);
 
         return covoiturages;
     }
