@@ -14,44 +14,23 @@ import java.util.List;
 public class RegionDataLoading {
 
     private final LieuCovoiturageRepository lieuCovoiturageRepository;
-    private final CommuneRepository communeRepository;
+    private final ArretCovoitRepository arretCovoitRepository;
+    private final CovoiturageRepository covoiturageRepository;
 
     public void chargerDonneesDepuisCSV(String cheminVersCSV) {
         try (CSVReader reader = new CSVReader(new FileReader(cheminVersCSV))) {
             List<String[]> donnees = reader.readAll();
             for (String[] ligne : donnees) {
-                LieuCovoiturage lieuCovoiturage = new LieuCovoiturage();
-                lieuCovoiturage.setIdLieu(ligne[0]);
-                lieuCovoiturage.setNomLieu(ligne[1]);
-                switch (ligne[2]) {
-                    case "Parking":
-                        lieuCovoiturage.setTypeLieu(TypeLieu.PARKING);
-                        break;
-                    case "Auto-stop":
-                        lieuCovoiturage.setTypeLieu(TypeLieu.AUTO_STOP);
-                        break;
-                    case "Aire de covoiturage":
-                        lieuCovoiturage.setTypeLieu(TypeLieu.AIRE_DE_COVOITURAGE);
-                        break;
-                    case "Supermarché":
-                        lieuCovoiturage.setTypeLieu(TypeLieu.SUPERMARCHE);
-                        break;
-                    case "Sortie d'autoroute":
-                        lieuCovoiturage.setTypeLieu(TypeLieu.SORTIE_AUTOROUTE);
-                        break;
-                    case "Parking relais":
-                        lieuCovoiturage.setTypeLieu(TypeLieu.PARKING_RELAIS);
-                        break;
-                    case "Délaissé routier":
-                        lieuCovoiturage.setTypeLieu(TypeLieu.DELAISSE_ROUTIER );
-                        break;
-                    default:
-                        lieuCovoiturage.setTypeLieu(null);
+                ArretCovoiturage arretCovoiturage = new ArretCovoiturage();
+                arretCovoiturage.setArretsCovoitId(new ArretCovoitId(ligne[0],covoiturageRepository.getCovoiturageByIdCovoiturage(Long.parseLong(ligne[2]))));
+                arretCovoiturage.setTarif(Double.parseDouble(ligne[1]));
+                arretCovoiturage.setLieuCovoiturage(lieuCovoiturageRepository.getLieuCovoiturageByIdLieu(ligne[3]));
+                if(Integer.parseInt(ligne[4]) == 1){
+                    arretCovoiturage.setEstDepart(true);
+                }else{
+                    arretCovoiturage.setEstDepart(false);
                 }
-                lieuCovoiturage.setLongitude(Double.parseDouble(ligne[3]));
-                lieuCovoiturage.setLatitude(Double.parseDouble(ligne[4]));
-                lieuCovoiturage.setCodeInsee(communeRepository.getCommuneByCodeInsee(ligne[5]));
-                lieuCovoiturageRepository.save(lieuCovoiturage);
+                arretCovoitRepository.save(arretCovoiturage);
             }
 
         } catch (Exception e) {
