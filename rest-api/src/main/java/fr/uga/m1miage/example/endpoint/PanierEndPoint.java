@@ -52,7 +52,7 @@ public interface PanierEndPoint {
     PanierDTO getPanierById(@PathVariable("id") Long id) ;
 
     @GetMapping
-    @Operation(summary = "Get a Panier by its id")
+    @Operation(summary = "Get a Panier by its utilisateurId")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Found the Panier",
                     content = { @Content(mediaType = "application/json",
