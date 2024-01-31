@@ -35,6 +35,19 @@ public interface UtilisateurEndPoint {
 
     UtilisateurDTO getUtilisateurById(@PathVariable("id") Long id) ;
 
+    @GetMapping
+    @Operation(summary = "Get a Utilisateur by its email")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the Utilisateur",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = UtilisateurDTO.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "Utilisateur not found",
+                    content = @Content) })
+
+    UtilisateurDTO getUtilisateurByEmail(String email) ;
+
 
     @PostMapping
     @Operation(description = "Création d'une entité UtilisateurDTO")
