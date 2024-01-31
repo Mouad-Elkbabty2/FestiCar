@@ -16,9 +16,7 @@ public class ArretCovoiturageService {
     @SneakyThrows
     @Transactional
     public HoraireDTO getHoraireByCovoitIdAndLieuCovoit(Long id, String idLieu){
-        String horaire =  arretCovoiturageComponent.getHoraireByCovoitIdAndLieuCovoit(id , idLieu);
-        HoraireDTO horaireDTO = new HoraireDTO(horaire);
-        return horaireDTO;
+        return new HoraireDTO(arretCovoiturageComponent.getHoraireByCovoitIdAndLieuCovoit(id , idLieu));
     }
 
 }

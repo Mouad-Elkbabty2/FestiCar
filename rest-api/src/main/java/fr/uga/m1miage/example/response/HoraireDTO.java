@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class HoraireDTO {
-    public String horaire;
+    private String horaire;
 }

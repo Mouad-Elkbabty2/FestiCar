@@ -1,7 +1,6 @@
 package fr.uga.m1miage.example.controller;
 
 import fr.uga.m1miage.example.endpoint.EmailEndPoint;
-import fr.uga.m1miage.example.models.Utilisateur;
 import fr.uga.m1miage.example.response.UtilisateurDTO;
 import fr.uga.m1miage.example.service.EmailService;
 import fr.uga.m1miage.example.service.UtilisateurService;
