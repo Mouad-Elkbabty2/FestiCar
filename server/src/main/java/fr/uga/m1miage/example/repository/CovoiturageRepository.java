@@ -36,5 +36,4 @@ public interface CovoiturageRepository extends JpaRepository<Covoiturage, Long> 
             long festivalId);
 
 
-
 }
