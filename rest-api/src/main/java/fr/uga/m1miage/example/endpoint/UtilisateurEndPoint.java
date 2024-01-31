@@ -62,5 +62,5 @@ public interface UtilisateurEndPoint {
     @ApiResponse(responseCode = "418", description = "Renvoie une erreur 418 si l'entité n'a pu être supprimée",
             content = @Content(schema = @Schema(implementation = EntityNotFound.class),mediaType = MediaType.APPLICATION_JSON_VALUE))
     @ResponseStatus(HttpStatus.OK)
-    void deleteUtilitsater(@PathVariable long id) ;
+    void deleteUtilisateur(@PathVariable long id) ;
 }

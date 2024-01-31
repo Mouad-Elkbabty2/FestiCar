@@ -30,7 +30,7 @@ public class UtilisateurController implements UtilisateurEndPoint {
         }
 
     @Override
-    public void deleteUtilitsater(long id) {
+    public void deleteUtilisateur(long id) {
           utilisateurService.deleteUtilisateur(id);
 
     }
