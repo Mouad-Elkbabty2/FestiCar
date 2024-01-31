@@ -62,4 +62,16 @@ public interface PanierEndPoint {
             @ApiResponse(responseCode = "404", description = "Panier not found",
                     content = @Content) })
     List<PanierDTO> getPanierByUtilisateur(long utilisateurId);
+
+    @PatchMapping
+    @Operation(summary = "affect panier to utilisateur")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Panier patched",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = PanierDTO.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "Panier not found",
+                    content = @Content) })
+    void setPanierUser(long panierId , long userId);
 }

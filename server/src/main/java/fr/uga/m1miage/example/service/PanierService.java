@@ -4,6 +4,7 @@ import fr.uga.m1miage.example.component.PanierComponent;
 import fr.uga.m1miage.example.exception.EntityNotFound;
 import fr.uga.m1miage.example.mapper.PanierMapper;
 import fr.uga.m1miage.example.models.Panier;
+import fr.uga.m1miage.example.repository.PanierRepository;
 import fr.uga.m1miage.example.repository.UtilisateurRepository;
 import fr.uga.m1miage.example.request.CreatePanierRequest;
 import fr.uga.m1miage.example.response.PanierDTO;
@@ -21,6 +22,7 @@ public class PanierService {
     private final PanierComponent panierComponent ;
     private final PanierMapper panierMapper;
     private final UtilisateurRepository utilisateurRepository;
+    private final PanierRepository panierRepository;
 
 
     @SneakyThrows
@@ -56,5 +58,13 @@ public class PanierService {
             throw new EntityNotFound("aucun panier trouver");
         }
         return panierMapper.entityToDTOList(panierList);
+    }
+
+    @SneakyThrows
+    @Transactional
+    public void setPanierUser(Long idPanier, Long idUser){
+        Panier panier = panierRepository.findPanierByIdPanier(idPanier);
+        panier.setUtilisateur(utilisateurRepository.getUtilisateurById(idUser));
+        panierRepository.save(panier);
     }
 }
