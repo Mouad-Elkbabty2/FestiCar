@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -39,8 +40,24 @@ public class PackService {
         Pack pack = new Pack();
         PackId packId = new PackId(panier,arretCovoiturage);
 pack.setIdPack(packId);
+pack.setNbPlacesReserves(request.getNbPlacesReserves());
         packRepository.save(pack);
 
         return packMapper.entityToDTO(pack);
     }
+
+    public List<PackDTO> getAllByIdPanier(long panierId){
+       List<Pack> packList =  packRepository.getAllByIdPanier(panierId);
+       List<PackDTO> packDTOList = packMapper.entityToDTOList(packList);
+        return packDTOList;
+    }
+
+
+/*    public PackDTO updatePack() {
+
+        Pack pack = packRepository.getPackByIdPack()
+
+        // Enregistrez la mise à jour du pack dans le référentiel
+        packRepository.save(pack);
+    }*/
 }

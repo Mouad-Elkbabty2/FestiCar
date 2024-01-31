@@ -17,5 +17,6 @@ public class CreatePackRequest {
     private String horaire;
     private long idCovoiturage ;
 
+    private int nbPlacesReserves;
 
 }
