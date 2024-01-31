@@ -4,17 +4,26 @@ package fr.uga.m1miage.example.component;
 import fr.uga.m1miage.example.exception.EntityAlreadyExists;
 import fr.uga.m1miage.example.exception.EntityNotFound;
 import fr.uga.m1miage.example.mapper.UtilisateurMapper;
+import fr.uga.m1miage.example.models.Pack;
+import fr.uga.m1miage.example.models.Panier;
 import fr.uga.m1miage.example.models.Utilisateur;
+import fr.uga.m1miage.example.repository.PackRepository;
+import fr.uga.m1miage.example.repository.PanierRepository;
 import fr.uga.m1miage.example.repository.UtilisateurRepository;
 import fr.uga.m1miage.example.response.UtilisateurDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor
 public class UtilisateurComponent {
     private final UtilisateurRepository utilisateurRepository;
     private final UtilisateurMapper utilisateurMapper ;
+    private final PanierRepository panierRepository;
+    private final PackRepository packRepository ;
+
 
 
     public Utilisateur getUtilisateur(final Long utilisateurId) throws EntityNotFound {
@@ -42,10 +51,18 @@ public class UtilisateurComponent {
 
     public void deleteUtilitsateur(final long id)  throws EntityNotFound{
         Utilisateur utilisateur = utilisateurRepository.findUtilisateurById(id);
+        List<Panier> panierList = panierRepository.getAllByUtilisateurId(id);
+        for (Panier panier : utilisateur.getPanier()) {
+            List<Pack> packList = packRepository.getAllByIdPanier(panier.getIdPanier());
+            packRepository.deleteAll(packList);
+        }
+        panierRepository.deleteAll(panierList);
         if(utilisateur == null){
             throw new EntityNotFound("Utilitsateur n'existe pas en BD.");
         }
 
-        utilisateurRepository.deleteUtilisateurById(id);
+        utilisateurRepository.delete(utilisateur);
     }
+
+
 }

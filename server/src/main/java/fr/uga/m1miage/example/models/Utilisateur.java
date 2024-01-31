@@ -12,7 +12,6 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
 public class Utilisateur {
 
     @Id
@@ -29,7 +28,7 @@ public class Utilisateur {
     private String mdp ;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "utilisateur")
+    @OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Panier> panier ;
     @Enumerated(EnumType.ORDINAL)
     private TypeUtilisateur typeUtilisateur ;
