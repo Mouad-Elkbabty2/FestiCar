@@ -8,6 +8,8 @@ import fr.uga.m1miage.example.service.PanierService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 public class PanierController implements PanierEndPoint {
@@ -25,6 +27,11 @@ public class PanierController implements PanierEndPoint {
     @Override
     public PanierDTO getPanierById(Long id) {
         return panierService.getPanier(id);
+    }
+
+    @Override
+    public List<PanierDTO> getPanierByUtilisateur(long utilisateurId) {
+        return panierService.getPanierByUtilisateurId(utilisateurId);
     }
 
 

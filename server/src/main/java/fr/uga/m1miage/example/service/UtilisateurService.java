@@ -4,15 +4,18 @@ package fr.uga.m1miage.example.service;
 import fr.uga.m1miage.example.component.UtilisateurComponent;
 import fr.uga.m1miage.example.exception.EntityNotFound;
 import fr.uga.m1miage.example.mapper.UtilisateurMapper;
+import fr.uga.m1miage.example.models.Panier;
 import fr.uga.m1miage.example.models.Utilisateur;
 import fr.uga.m1miage.example.repository.UtilisateurRepository;
 import fr.uga.m1miage.example.request.CreateUtilisateurRequest;
+import fr.uga.m1miage.example.response.PanierDTO;
 import fr.uga.m1miage.example.response.UtilisateurDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -38,6 +41,9 @@ public class UtilisateurService {
             return utilisateurComponent.createUtilisateur(newUtilisateur);
 
     }
+
+
+
     @SneakyThrows
     @Transactional
     public void deleteUtilisateur(final long id)  {

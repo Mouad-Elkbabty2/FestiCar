@@ -15,6 +15,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Tag(name = "Panier tag")
 @CrossOrigin
@@ -49,4 +50,16 @@ public interface PanierEndPoint {
                     content = @Content) })
 
     PanierDTO getPanierById(@PathVariable("id") Long id) ;
+
+    @GetMapping
+    @Operation(summary = "Get a Panier by its id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the Panier",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = PanierDTO.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "Panier not found",
+                    content = @Content) })
+    List<PanierDTO> getPanierByUtilisateur(long utilisateurId);
 }
