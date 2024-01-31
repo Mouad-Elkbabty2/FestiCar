@@ -3,7 +3,6 @@ package fr.uga.m1miage.example.models;
 
 import lombok.*;
 
-import javax.naming.Name;
 import javax.persistence.*;
 
 @Entity

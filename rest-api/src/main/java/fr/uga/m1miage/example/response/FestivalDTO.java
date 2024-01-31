@@ -1,11 +1,9 @@
 package fr.uga.m1miage.example.response;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
 
-import java.util.List;
 
 
 @Data
@@ -31,9 +29,6 @@ public class FestivalDTO {
     private int nbPlacesDisponible;
 
     private SousDomaineDTO sousDomaine;
-
-/*    @JsonIgnore
-    private List<CovoiturageDTO> covoiturageList ;*/
 
     private CommuneDTO commune ;
 }

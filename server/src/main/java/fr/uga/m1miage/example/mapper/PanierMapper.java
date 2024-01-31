@@ -10,8 +10,8 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring",uses = {UtilisateurMapper.class})
 public interface PanierMapper {
     PanierDTO entityToDTO(Panier panier);
-    Panier DtoToEntity(PanierDTO panierDTO);
-    Panier DtoToEntityCreation(CreatePanierRequest createPanierRequest);
+    Panier dtoToEntity(PanierDTO panierDTO);
+    Panier dtoToEntityCreation(CreatePanierRequest createPanierRequest);
 
 
 }

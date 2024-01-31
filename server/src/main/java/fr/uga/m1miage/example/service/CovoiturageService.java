@@ -1,14 +1,11 @@
 package fr.uga.m1miage.example.service;
 
-import fr.uga.m1miage.example.Component.CovoiturageComponent;
-import fr.uga.m1miage.example.Component.FestivalComponent;
-import fr.uga.m1miage.example.Exception.EntityNotFound;
+import fr.uga.m1miage.example.component.CovoiturageComponent;
+import fr.uga.m1miage.example.exception.EntityNotFound;
 import fr.uga.m1miage.example.mapper.CovoiturageMapper;
 import fr.uga.m1miage.example.models.Covoiturage;
-import fr.uga.m1miage.example.models.Festival;
 import fr.uga.m1miage.example.repository.CovoiturageRepository;
 import fr.uga.m1miage.example.response.CovoiturageDTO;
-import fr.uga.m1miage.example.response.FestivalDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.data.domain.Page;
@@ -23,7 +20,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CovoiturageService {
     private final CovoiturageComponent covoiturageComponent;
-    private final FestivalComponent festivalComponent;
     private final CovoiturageMapper covoiturageMapper;
     private final CovoiturageRepository covoiturageRepository ;
 
@@ -64,8 +60,6 @@ public class CovoiturageService {
                                                  Integer placesDispo,
                                                  Double budget,
                                                  Pageable pageable,long festivaId){
-        try{
-            Festival festival = festivalComponent.getFestivalById(festivaId);
             Page<Covoiturage> covoiturages = covoiturageComponent.getCovoituragesCriteria( nomCommune,
                     modelVoiture,
                     placesDispo,
@@ -78,9 +72,6 @@ public class CovoiturageService {
                 covoiturageDTOS.add(covoiturageDTO);
             }
             return covoiturageDTOS;
-        }catch(EntityNotFound e){
-            throw new EntityNotFound("Impossible de charger les covoitruages ");
-        }
     }
 
 

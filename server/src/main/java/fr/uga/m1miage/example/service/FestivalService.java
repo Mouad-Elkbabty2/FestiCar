@@ -1,8 +1,8 @@
 package fr.uga.m1miage.example.service;
 
 
-import fr.uga.m1miage.example.Component.FestivalComponent;
-import fr.uga.m1miage.example.Exception.EntityNotFound;
+import fr.uga.m1miage.example.component.FestivalComponent;
+import fr.uga.m1miage.example.exception.EntityNotFound;
 import fr.uga.m1miage.example.mapper.FestivalMapper;
 import fr.uga.m1miage.example.models.Festival;
 import fr.uga.m1miage.example.response.FestivalDTO;
@@ -46,22 +46,18 @@ public class FestivalService {
                                                        String dateDebut,
                                                        String dateFin,
                                                        Double tarif,
-                                                       String sousDomaine, Pageable pageable){
-        try{
-            Page<Festival> festivalsPage = festivalComponent.getFestivalsByCriteria( nomFestival,
-                                                                                 dateDebut,
-                                                                                 dateFin,
-                                                                                 tarif,
-                                                                                 sousDomaine,pageable);
-            List<Festival> festivals = festivalsPage.getContent();
-            List<FestivalDTO> festivalDTOS = new ArrayList<>();
-            for(Festival festival:festivals){
-                festivalDTOS.add(festivalMapper.entityToDTO(festival));
-            }
-            return festivalDTOS;
-        }catch(EntityNotFound e){
-            throw new EntityNotFound("Impossible de charger les festivals ");
+                                                       String sousDomaine, Pageable pageable) {
+        Page<Festival> festivalsPage = festivalComponent.getFestivalsByCriteria( nomFestival,
+                                                                             dateDebut,
+                                                                             dateFin,
+                                                                             tarif,
+                                                                             sousDomaine,pageable) ;
+        List<Festival> festivals = festivalsPage.getContent();
+        List<FestivalDTO> festivalDTOS = new ArrayList<>();
+        for(Festival festival:festivals){
+            festivalDTOS.add(festivalMapper.entityToDTO(festival));
         }
+        return festivalDTOS;
     }
 
     @SneakyThrows

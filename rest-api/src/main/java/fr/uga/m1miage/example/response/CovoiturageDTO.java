@@ -22,7 +22,7 @@ public class CovoiturageDTO {
 
     private UtilisateurDTO utilisateur ;
     private FestivalDTO festival ;
-    private int nbPlacesReservées ;
+    private int nbPlacesReservees ;
     private List<ArretCovoiturageDTO> arretCovoiturageList;
 
 

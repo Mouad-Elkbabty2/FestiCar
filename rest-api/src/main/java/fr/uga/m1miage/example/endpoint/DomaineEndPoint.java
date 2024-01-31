@@ -2,7 +2,6 @@ package fr.uga.m1miage.example.endpoint;
 
 
 import fr.uga.m1miage.example.response.DomaineDTO;
-import fr.uga.m1miage.example.response.FestivalDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

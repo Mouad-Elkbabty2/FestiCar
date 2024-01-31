@@ -1,7 +1,7 @@
 package fr.uga.m1miage.example.service;
 
-import fr.uga.m1miage.example.Component.PanierComponent;
-import fr.uga.m1miage.example.Exception.EntityNotFound;
+import fr.uga.m1miage.example.component.PanierComponent;
+import fr.uga.m1miage.example.exception.EntityNotFound;
 import fr.uga.m1miage.example.mapper.PanierMapper;
 import fr.uga.m1miage.example.models.Panier;
 import fr.uga.m1miage.example.request.CreatePanierRequest;
@@ -31,7 +31,7 @@ public class PanierService {
     @SneakyThrows
     @Transactional
     public PanierDTO createPanier(final long utilitsateurId , final CreatePanierRequest request)  {
-        Panier newPanier = panierMapper.DtoToEntityCreation(request);
+        Panier newPanier = panierMapper.dtoToEntityCreation(request);
         return panierComponent.createPanier(utilitsateurId,newPanier);
     }
 

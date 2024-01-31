@@ -1,8 +1,6 @@
 package fr.uga.m1miage.example.controller;
 
 import fr.uga.m1miage.example.endpoint.CovoiturageEndPoint;
-import fr.uga.m1miage.example.models.Covoiturage;
-import fr.uga.m1miage.example.models.Festival;
 import fr.uga.m1miage.example.response.CovoiturageDTO;
 import fr.uga.m1miage.example.service.CovoiturageService;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +16,7 @@ public class CovoiturageController implements CovoiturageEndPoint {
 
     private final CovoiturageService covoiturageService;
     @Override
-    public List<String> GetModeleVoiture() {
+    public List<String> getModeleVoiture() {
         return covoiturageService.getModeleVoiture();
     }
 

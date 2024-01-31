@@ -13,7 +13,8 @@ import java.util.List;
 
 public interface PackRepository extends JpaRepository<Pack, PackId> {
 
-                Pack getPackByIdPack(PackId packId);
+                    @Query("SELECT c From Pack c where c.idPack.panier.idPanier = :idPanier AND c.idPack.arretCovoiturage.arretsCovoitId.horaire = :horaire AND c.idPack.arretCovoiturage.arretsCovoitId.idCovoiturage.idCovoiturage = :idCovoiturage")
+                    Pack getPackByIdPack(String horaire,long idCovoiturage,long idPanier);
                 @Query("SELECT c From Pack c where c.idPack.panier.idPanier = :idPanier")
                 List<Pack> getAllByIdPanier(long idPanier);
 }

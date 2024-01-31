@@ -9,7 +9,7 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring",uses = {PanierMapper.class})
 public interface UtilisateurMapper {
     UtilisateurDTO entityToDTO(Utilisateur utilisateur);
-    Utilisateur DtoToEntity(UtilisateurDTO utilisateurDTO);
+    Utilisateur dtoToEntity(UtilisateurDTO utilisateurDTO);
     Utilisateur dtoToEntityCreation(CreateUtilisateurRequest utilisateurDTO);
 
 }

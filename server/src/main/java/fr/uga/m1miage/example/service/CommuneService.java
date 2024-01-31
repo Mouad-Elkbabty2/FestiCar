@@ -1,7 +1,7 @@
 package fr.uga.m1miage.example.service;
 
-import fr.uga.m1miage.example.Component.CommuneComponent;
-import fr.uga.m1miage.example.Exception.EntityNotFound;
+import fr.uga.m1miage.example.component.CommuneComponent;
+import fr.uga.m1miage.example.exception.EntityNotFound;
 import fr.uga.m1miage.example.mapper.CommuneMapper;
 import fr.uga.m1miage.example.models.Commune;
 import fr.uga.m1miage.example.response.CommuneDTO;

@@ -38,7 +38,7 @@ public class Covoiturage {
 
 
     private Festival festival ;
-    private int nbPlacesReservées ;
+    private int nbPlacesReservees ;
 
     @OneToMany(mappedBy = "arretsCovoitId.idCovoiturage")
     private List<ArretCovoiturage> arretCovoiturageList ;

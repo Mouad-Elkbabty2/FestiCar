@@ -1,4 +1,4 @@
-package fr.uga.m1miage.example.Exception;
+package fr.uga.m1miage.example.exception;
 
 public class EntityAlreadyExists extends Exception{
 

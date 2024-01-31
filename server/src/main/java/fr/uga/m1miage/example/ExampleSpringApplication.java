@@ -3,9 +3,13 @@ package fr.uga.m1miage.example;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.net.InetAddress;
+
 @SpringBootApplication
 public class ExampleSpringApplication {
     public static void main(String[] args) {
+
+
         SpringApplication.run(ExampleSpringApplication.class, args);
     }
 }

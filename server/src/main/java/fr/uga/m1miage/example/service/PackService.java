@@ -1,6 +1,7 @@
 package fr.uga.m1miage.example.service;
 
 
+import fr.uga.m1miage.example.exception.EntityNotFound;
 import fr.uga.m1miage.example.mapper.PackMapper;
 import fr.uga.m1miage.example.models.*;
 import fr.uga.m1miage.example.repository.ArretCovoitRepository;
@@ -54,17 +55,21 @@ pack.setNbPlacesReserves(request.getNbPlacesReserves());
     @SneakyThrows
     @Transactional
     public List<PackDTO> getAllByIdPanier(long panierId){
-       List<Pack> packList =  packRepository.getAllByIdPanier(panierId);
-       List<PackDTO> packDTOList = packMapper.entityToDTOList(packList);
-        return packDTOList;
+        return packMapper.entityToDTOList(packRepository.getAllByIdPanier(panierId));
+
     }
 
+    @SneakyThrows
+    @Transactional
+    public PackDTO updatePack(CreatePackRequest request)  {
 
-/*    public PackDTO updatePack() {
 
-        Pack pack = packRepository.getPackByIdPack()
-
-        // Enregistrez la mise à jour du pack dans le référentiel
+        Pack pack = packRepository.getPackByIdPack(request.getHoraire(),request.getIdCovoiturage(),request.getPanier());
+    if(pack == null){
+        throw new EntityNotFound("Pack not found ");
+    }
+        pack.setNbPlacesReserves(request.getNbPlacesReserves());
         packRepository.save(pack);
-    }*/
+        return packMapper.entityToDTO(pack);
+    }
 }

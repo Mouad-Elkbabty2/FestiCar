@@ -1,7 +1,7 @@
-package fr.uga.m1miage.example.Component;
+package fr.uga.m1miage.example.component;
 
 
-import fr.uga.m1miage.example.Exception.EntityNotFound;
+import fr.uga.m1miage.example.exception.EntityNotFound;
 import fr.uga.m1miage.example.models.Covoiturage;
 import fr.uga.m1miage.example.models.Festival;
 import fr.uga.m1miage.example.repository.CovoiturageRepository;
@@ -21,8 +21,7 @@ public class CovoiturageComponent {
     private final FestivalRepository festivalRepository;
 
     public List<String> getModeleVoiture(){
-        List<String> modeles = covoiturageRepository.getModeleVoiture();
-        return  modeles;
+        return  covoiturageRepository.getModeleVoiture();
     }
 
     public Page<Covoiturage> getCovoiturageByFestivalId(Long id ,Pageable pageable) throws EntityNotFound{
@@ -39,9 +38,8 @@ public class CovoiturageComponent {
                                              String modelVoiture,
                                              Integer placesDispo,
                                              Double budget,
-                                             Pageable pageable,long festivalId) throws EntityNotFound {
-        Page<Covoiturage> covoiturages = covoiturageRepository.filterCovoiturages(nomCommune,modelVoiture,placesDispo,budget,pageable,festivalId);
+                                             Pageable pageable,long festivalId) {
 
-        return covoiturages;
+        return covoiturageRepository.filterCovoiturages(nomCommune,modelVoiture,placesDispo,budget,pageable,festivalId);
     }
 }

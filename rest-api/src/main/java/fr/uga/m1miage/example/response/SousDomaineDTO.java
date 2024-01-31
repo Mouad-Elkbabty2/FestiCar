@@ -9,7 +9,5 @@ import lombok.Data;
 public class SousDomaineDTO {
     private String nomSousDomaine;
 
-/*
-    private DomaineDTO domaine;
-*/
+
 }

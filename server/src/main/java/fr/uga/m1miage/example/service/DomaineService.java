@@ -1,8 +1,8 @@
 package fr.uga.m1miage.example.service;
 
 
-import fr.uga.m1miage.example.Component.DomaineComponent;
-import fr.uga.m1miage.example.Exception.EntityNotFound;
+import fr.uga.m1miage.example.component.DomaineComponent;
+import fr.uga.m1miage.example.exception.EntityNotFound;
 import fr.uga.m1miage.example.mapper.DomaineMapper;
 import fr.uga.m1miage.example.models.Domaine;
 import fr.uga.m1miage.example.response.DomaineDTO;

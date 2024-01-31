@@ -1,8 +1,8 @@
-package fr.uga.m1miage.example.Component;
+package fr.uga.m1miage.example.component;
 
 
-import fr.uga.m1miage.example.Exception.EntityAlreadyExists;
-import fr.uga.m1miage.example.Exception.EntityNotFound;
+import fr.uga.m1miage.example.exception.EntityAlreadyExists;
+import fr.uga.m1miage.example.exception.EntityNotFound;
 import fr.uga.m1miage.example.mapper.PanierMapper;
 import fr.uga.m1miage.example.models.Panier;
 import fr.uga.m1miage.example.models.Utilisateur;

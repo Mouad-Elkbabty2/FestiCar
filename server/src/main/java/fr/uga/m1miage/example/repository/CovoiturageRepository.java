@@ -17,7 +17,6 @@ public interface CovoiturageRepository extends JpaRepository<Covoiturage, Long> 
 
     Page<Covoiturage> getCovoiturageByFestival (Festival id, Pageable pageable);
 
-    Covoiturage getCovoiturageByidCovoiturage(long idCovoiturage);
     Covoiturage getCovoiturageByIdCovoiturage(long idCovoiturage);
 
     @Query("SELECT c.arretsCovoitId.idCovoiturage FROM ArretCovoiturage c WHERE " +
@@ -25,7 +24,7 @@ public interface CovoiturageRepository extends JpaRepository<Covoiturage, Long> 
             "AND (:nomCommune IS NULL OR LOWER(c.lieuCovoiturage.codeInsee.nomCommune) LIKE CONCAT('%', LOWER(:nomCommune), '%')) " +
             "AND c.estDepart = true  " +
             "AND (:modelVoiture IS NULL OR LOWER(c.arretsCovoitId.idCovoiturage.modelVoiture) LIKE CONCAT('%', LOWER(:modelVoiture), '%')) " +
-            "AND (:placesDispo IS NULL OR ((c.arretsCovoitId.idCovoiturage.nbPlaces ) - (c.arretsCovoitId.idCovoiturage.nbPlacesReservées)) >= :placesDispo) " +
+            "AND (:placesDispo IS NULL OR ((c.arretsCovoitId.idCovoiturage.nbPlaces ) - (c.arretsCovoitId.idCovoiturage.nbPlacesReservees)) >= :placesDispo) " +
             "AND (:budget IS NULL OR c.arretsCovoitId.idCovoiturage.tarif <= :budget)")
     Page<Covoiturage> filterCovoiturages(
             String nomCommune,

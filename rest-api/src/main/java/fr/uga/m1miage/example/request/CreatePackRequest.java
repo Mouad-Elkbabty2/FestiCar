@@ -1,7 +1,5 @@
 package fr.uga.m1miage.example.request;
 
-import fr.uga.m1miage.example.response.ArretCovoiturageDTO;
-import fr.uga.m1miage.example.response.PanierDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Data;

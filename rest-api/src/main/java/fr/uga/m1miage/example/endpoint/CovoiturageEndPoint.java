@@ -25,7 +25,7 @@ public interface CovoiturageEndPoint {
                     content = @Content),
             @ApiResponse(responseCode = "404", description = "models not Found",
                     content = @Content) })
-    List<String> GetModeleVoiture();
+    List<String> getModeleVoiture();
 
     @GetMapping("Covoiturage")
     @Operation(summary = "Covoiturage by id ")

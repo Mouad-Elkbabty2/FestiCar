@@ -1,8 +1,8 @@
 package fr.uga.m1miage.example.service;
 
 
-import fr.uga.m1miage.example.Component.UtilisateurComponent;
-import fr.uga.m1miage.example.Exception.EntityNotFound;
+import fr.uga.m1miage.example.component.UtilisateurComponent;
+import fr.uga.m1miage.example.exception.EntityNotFound;
 import fr.uga.m1miage.example.mapper.UtilisateurMapper;
 import fr.uga.m1miage.example.models.Utilisateur;
 import fr.uga.m1miage.example.repository.UtilisateurRepository;
@@ -26,9 +26,7 @@ public class UtilisateurService {
     @Transactional
     public UtilisateurDTO getUtilisateurById(final long id)  {
         try{
-            Utilisateur utilisateur = utilisateurComponent.getUtilisateur(id);
-            UtilisateurDTO utilisateurDTO = utilisateurMapper.entityToDTO(utilisateur) ;
-            return utilisateurDTO;
+            return utilisateurMapper.entityToDTO(utilisateurComponent.getUtilisateur(id));
         }catch(EntityNotFound e){
             throw new EntityNotFound("Impossible de charger l'entité utilisateur");
         }
