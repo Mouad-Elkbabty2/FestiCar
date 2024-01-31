@@ -24,7 +24,7 @@ public interface CovoiturageRepository extends JpaRepository<Covoiturage, Long> 
             "AND (:nomCommune IS NULL OR LOWER(c.lieuCovoiturage.codeInsee.nomCommune) LIKE CONCAT('%', LOWER(:nomCommune), '%')) " +
             "AND c.estDepart = true  " +
             "AND (:modelVoiture IS NULL OR LOWER(c.arretsCovoitId.idCovoiturage.modelVoiture) LIKE CONCAT('%', LOWER(:modelVoiture), '%')) " +
-            "AND (:placesDispo IS NULL OR ((c.arretsCovoitId.idCovoiturage.nbPlaces ) - (c.arretsCovoitId.idCovoiturage.nbPlacesReservees)) >= :placesDispo) " +
+            "AND (:placesDispo IS NULL OR ((c.arretsCovoitId.idCovoiturage.nbPlaces ) - (c.arretsCovoitId.idCovoiturage.nbPlacesReservées)) >= :placesDispo) " +
             "AND (:budget IS NULL OR c.arretsCovoitId.idCovoiturage.tarif <= :budget)")
     Page<Covoiturage> filterCovoiturages(
             String nomCommune,
