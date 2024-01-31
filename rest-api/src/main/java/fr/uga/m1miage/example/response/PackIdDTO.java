@@ -11,4 +11,5 @@ public class PackIdDTO {
     private PanierDTO panier;
 
     private ArretCovoiturageDTO arretCovoiturage;
+
 }
