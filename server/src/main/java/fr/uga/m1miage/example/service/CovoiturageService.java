@@ -50,7 +50,12 @@ public class CovoiturageService {
     @SneakyThrows
     @Transactional
     public CovoiturageDTO getCovoiturageById(long idcovoiturage){
-        return covoiturageMapper.entityToDTO(covoiturageRepository.getCovoiturageByIdCovoiturage(idcovoiturage));
+        Covoiturage covoiturage = covoiturageRepository.getCovoiturageByIdCovoiturage(idcovoiturage);
+        if(covoiturage == null){
+            throw new EntityNotFound("Impossible de charger l'entité Covoiturage");
+
+        }
+        return covoiturageMapper.entityToDTO(covoiturage);
     }
     @SneakyThrows
     @Transactional

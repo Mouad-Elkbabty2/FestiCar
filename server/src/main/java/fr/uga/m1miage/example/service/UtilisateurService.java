@@ -50,9 +50,14 @@ public class UtilisateurService {
         }
     }
 
-
-public UtilisateurDTO getUtilisateurByEmail(String email){
-        return utilisateurMapper.entityToDTO(utilisateurRepository.getUtilisateurByEmail(email));
+    @SneakyThrows
+    @Transactional
+    public UtilisateurDTO getUtilisateurByEmail(String email){
+        Utilisateur utilisateur = utilisateurRepository.getUtilisateurByEmail(email);
+        if(utilisateur == null){
+            throw new EntityNotFound("Utilisateur not found ");
+        }
+        return utilisateurMapper.entityToDTO(utilisateur);
 }
 
 

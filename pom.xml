@@ -29,6 +29,8 @@
         <apache-httpclient.version>4.5.14</apache-httpclient.version>
         <springDoc.version>1.6.14</springDoc.version>
         <mapstruct.version>1.5.3.Final</mapstruct.version>
+        <sonar.host.url>http://im2ag-sonar.u-ga.fr:9000</sonar.host.url>
+        <sonar.login>9aca88f01a9503fdcdbfa8bb1eeb0beca5f2d909</sonar.login>
     </properties>
 
 
@@ -89,6 +91,11 @@
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.sonarsource.scanner.maven</groupId>
+                    <artifactId>sonar-maven-plugin</artifactId>
+                    <version>3.9.0.2155</version>
+                </plugin>
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
