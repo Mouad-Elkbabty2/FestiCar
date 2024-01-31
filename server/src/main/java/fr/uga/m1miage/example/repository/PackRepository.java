@@ -14,6 +14,6 @@ import java.util.List;
 public interface PackRepository extends JpaRepository<Pack, PackId> {
 
                 Pack getPackByIdPack(PackId packId);
-                @Query(nativeQuery = true , value="SELECT c From Pack c where c.idPack.panier = :idPanier")
+                @Query("SELECT c From Pack c where c.idPack.panier.idPanier = :idPanier")
                 List<Pack> getAllByIdPanier(long idPanier);
 }
