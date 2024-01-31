@@ -1,6 +1,7 @@
 package fr.uga.m1miage.example.service;
 
 import fr.uga.m1miage.example.Component.ArretCovoiturageComponent;
+import fr.uga.m1miage.example.response.HoraireDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
@@ -14,8 +15,10 @@ public class ArretCovoiturageService {
 
     @SneakyThrows
     @Transactional
-    public String getHoraireByCovoitIdAndLieuCovoit(Long id, String idLieu){
-        return arretCovoiturageComponent.getHoraireByCovoitIdAndLieuCovoit(id , idLieu);
+    public HoraireDTO getHoraireByCovoitIdAndLieuCovoit(Long id, String idLieu){
+        String horaire =  arretCovoiturageComponent.getHoraireByCovoitIdAndLieuCovoit(id , idLieu);
+        HoraireDTO horaireDTO = new HoraireDTO(horaire);
+        return horaireDTO;
     }
 
 }

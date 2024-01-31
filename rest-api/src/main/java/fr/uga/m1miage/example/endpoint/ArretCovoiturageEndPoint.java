@@ -1,5 +1,6 @@
 package fr.uga.m1miage.example.endpoint;
 
+import fr.uga.m1miage.example.response.HoraireDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -21,5 +22,5 @@ public interface ArretCovoiturageEndPoint {
                     content = @Content),
             @ApiResponse(responseCode = "404", description = "models not Found",
                     content = @Content) })
-    String getHoraireByCovoitIdAndLieuId(@RequestParam Long id , @RequestParam String idLieu);
+    HoraireDTO getHoraireByCovoitIdAndLieuId(@RequestParam Long id , @RequestParam String idLieu);
 }
