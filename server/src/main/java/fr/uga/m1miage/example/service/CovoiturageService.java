@@ -6,6 +6,7 @@ import fr.uga.m1miage.example.Exception.EntityNotFound;
 import fr.uga.m1miage.example.mapper.CovoiturageMapper;
 import fr.uga.m1miage.example.models.Covoiturage;
 import fr.uga.m1miage.example.models.Festival;
+import fr.uga.m1miage.example.repository.CovoiturageRepository;
 import fr.uga.m1miage.example.response.CovoiturageDTO;
 import fr.uga.m1miage.example.response.FestivalDTO;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +25,7 @@ public class CovoiturageService {
     private final CovoiturageComponent covoiturageComponent;
     private final FestivalComponent festivalComponent;
     private final CovoiturageMapper covoiturageMapper;
+    private final CovoiturageRepository covoiturageRepository ;
 
     @SneakyThrows
     @Transactional
@@ -43,6 +45,12 @@ public class CovoiturageService {
         }catch(EntityNotFound e){
             throw new EntityNotFound("Aucun ;covoiturage n'existe pour ce festival");
         }
+    }
+
+    @SneakyThrows
+    @Transactional
+    public CovoiturageDTO getCovoiturageById(long idcovoiturage){
+        return covoiturageMapper.entityToDTO(covoiturageRepository.getCovoiturageByIdCovoiturage(idcovoiturage));
     }
     @SneakyThrows
     @Transactional

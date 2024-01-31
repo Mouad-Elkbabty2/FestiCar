@@ -27,6 +27,17 @@ public interface CovoiturageEndPoint {
                     content = @Content) })
     List<String> GetModeleVoiture();
 
+    @GetMapping("Covoiturage")
+    @Operation(summary = "Covoiturage by id ")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Covoiturage found",
+                    content = { @Content(mediaType = "application/json")}),
+            @ApiResponse(responseCode = "400", description = "Invalid query",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "models not Found",
+                    content = @Content) })
+    CovoiturageDTO getCovoiturageById(long covoiturageId);
+
     @GetMapping("Covoiturage/{festivalId}")
     @Operation(summary = "Covoiturage by festival id")
     @ApiResponses(value = {
