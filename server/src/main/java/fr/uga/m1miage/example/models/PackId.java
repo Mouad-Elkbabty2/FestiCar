@@ -7,19 +7,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Data
 @Getter
 @Setter
 @Embeddable
+@AllArgsConstructor
+@NoArgsConstructor
 public class PackId implements Serializable {
 
-    @ManyToOne
-    @JoinColumn(name = "idFestival")
-    private Festival festival;
 
     @ManyToOne
     @JoinColumn(name = "idPanier")
@@ -31,4 +28,5 @@ public class PackId implements Serializable {
             @JoinColumn(name = "idCovoiturage", referencedColumnName = "idCovoiturage")
     })
     private ArretCovoiturage arretCovoiturage;
+
 }

@@ -22,4 +22,5 @@ public class CreateUtilisateurRequest {
 
     private List<PanierDTO> panier ;
     private TypeUtilisateur typeUtilisateur ;
+
 }
