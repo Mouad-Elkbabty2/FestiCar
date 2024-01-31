@@ -23,6 +23,11 @@ public class CovoiturageController implements CovoiturageEndPoint {
     }
 
     @Override
+    public CovoiturageDTO getCovoiturageById(long covoiturageId) {
+        return covoiturageService.getCovoiturageById(covoiturageId);
+    }
+
+    @Override
     public List<CovoiturageDTO> getCovoiturageByFestivalId(Long id, int numPage, int taillePage) {
         Pageable pageable = PageRequest.of(numPage,taillePage);
         return covoiturageService.getCovoiturageByFestivalId(id,pageable);

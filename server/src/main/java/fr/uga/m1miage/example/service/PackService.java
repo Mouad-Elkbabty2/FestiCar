@@ -10,9 +10,12 @@ import fr.uga.m1miage.example.repository.PanierRepository;
 import fr.uga.m1miage.example.request.CreatePackRequest;
 import fr.uga.m1miage.example.response.PackDTO;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -25,6 +28,9 @@ public class PackService {
     private final CovoiturageRepository covoiturageRepository ;
     private final PackMapper packMapper;
 
+
+    @SneakyThrows
+    @Transactional
     public PackDTO createPack(CreatePackRequest request) {
 
         Panier panier = panierRepository.findById(request.getPanier())
@@ -39,8 +45,26 @@ public class PackService {
         Pack pack = new Pack();
         PackId packId = new PackId(panier,arretCovoiturage);
 pack.setIdPack(packId);
+pack.setNbPlacesReserves(request.getNbPlacesReserves());
         packRepository.save(pack);
 
         return packMapper.entityToDTO(pack);
     }
+
+    @SneakyThrows
+    @Transactional
+    public List<PackDTO> getAllByIdPanier(long panierId){
+       List<Pack> packList =  packRepository.getAllByIdPanier(panierId);
+       List<PackDTO> packDTOList = packMapper.entityToDTOList(packList);
+        return packDTOList;
+    }
+
+
+/*    public PackDTO updatePack() {
+
+        Pack pack = packRepository.getPackByIdPack()
+
+        // Enregistrez la mise à jour du pack dans le référentiel
+        packRepository.save(pack);
+    }*/
 }

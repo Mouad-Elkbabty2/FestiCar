@@ -17,7 +17,7 @@ public interface CovoiturageRepository extends JpaRepository<Covoiturage, Long> 
 
     Page<Covoiturage> getCovoiturageByFestival (Festival id, Pageable pageable);
 
-
+    Covoiturage getCovoiturageByidCovoiturage(long idCovoiturage);
     Covoiturage getCovoiturageByIdCovoiturage(long idCovoiturage);
 
     @Query("SELECT c.arretsCovoitId.idCovoiturage FROM ArretCovoiturage c WHERE " +

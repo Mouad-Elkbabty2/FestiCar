@@ -5,6 +5,7 @@ import fr.uga.m1miage.example.Component.UtilisateurComponent;
 import fr.uga.m1miage.example.Exception.EntityNotFound;
 import fr.uga.m1miage.example.mapper.UtilisateurMapper;
 import fr.uga.m1miage.example.models.Utilisateur;
+import fr.uga.m1miage.example.repository.UtilisateurRepository;
 import fr.uga.m1miage.example.request.CreateUtilisateurRequest;
 import fr.uga.m1miage.example.response.UtilisateurDTO;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,7 @@ import javax.transaction.Transactional;
 public class UtilisateurService {
     private final UtilisateurComponent utilisateurComponent ;
     private final UtilisateurMapper utilisateurMapper ;
+    private final UtilisateurRepository utilisateurRepository ;
 
 
     @SneakyThrows
@@ -48,8 +50,15 @@ public class UtilisateurService {
         }
     }
 
-
-
+    @SneakyThrows
+    @Transactional
+    public UtilisateurDTO getUtilisateurByEmail(String email){
+        Utilisateur utilisateur = utilisateurRepository.getUtilisateurByEmail(email);
+        if(utilisateur == null){
+            throw new EntityNotFound("Utilisateur not found ");
+        }
+        return utilisateurMapper.entityToDTO(utilisateur);
+}
 
 
 

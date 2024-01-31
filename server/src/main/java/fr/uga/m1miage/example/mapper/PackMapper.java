@@ -5,8 +5,13 @@ import fr.uga.m1miage.example.models.Pack;
 import fr.uga.m1miage.example.response.PackDTO;
 import org.mapstruct.Mapper;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring",uses = {ArretCovoiturageMapper.class})
 
 public interface PackMapper {
     PackDTO entityToDTO(Pack pack);
+
+    List<PackDTO> entityToDTOList(List<Pack> pack);
+
 }
