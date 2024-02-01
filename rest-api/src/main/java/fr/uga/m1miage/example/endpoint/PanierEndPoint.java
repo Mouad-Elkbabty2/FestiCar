@@ -63,7 +63,7 @@ public interface PanierEndPoint {
                     content = @Content) })
     List<PanierDTO> getPanierByUtilisateur(long utilisateurId);
     @CrossOrigin
-    @PutMapping("/user")
+    @PatchMapping("/user")
     @Operation(summary = "affect panier to utilisateur")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Panier patched",
@@ -73,5 +73,6 @@ public interface PanierEndPoint {
                     content = @Content),
             @ApiResponse(responseCode = "404", description = "Panier not found",
                     content = @Content) })
+    @ResponseStatus(HttpStatus.OK)
     void setPanierUser(long panierId , long userId);
 }
