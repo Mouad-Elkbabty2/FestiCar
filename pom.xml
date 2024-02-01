@@ -32,6 +32,10 @@
         <sonar.host.projectKey>bdi_6</sonar.host.projectKey>
         <sonar.host.url>http://im2ag-sonar.u-ga.fr:9000</sonar.host.url>
         <sonar.login>9aca88f01a9503fdcdbfa8bb1eeb0beca5f2d909</sonar.login>
+        <sonar.junit.reportPaths>target/surefire-reports</sonar.junit.reportPaths>
+        <sonar.jacoco.reportPaths>target/jacoco.exec</sonar.jacoco.reportPaths>
+        <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+
     </properties>
 
 
@@ -49,6 +53,13 @@
                 <version>${apache-httpclient.version}</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>3.12.4</version>
+                <scope>test</scope>
+            </dependency>
+
             <dependency>
                 <groupId>com.oracle.database.jdbc</groupId>
                 <artifactId>ojdbc8</artifactId>
@@ -97,6 +108,7 @@
     <build>
         <pluginManagement>
             <plugins>
+
                 <plugin>
                     <groupId>org.sonarsource.scanner.maven</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>

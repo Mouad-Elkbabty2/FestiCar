@@ -33,7 +33,7 @@ private final DomaineMapper domaineMapper;
             }
             return domaineDTOS;
         }catch(EntityNotFound e){
-            throw new EntityNotFound("Impossible de charger les festivals ");
+            throw new EntityNotFound("Impossible de charger les domaines ");
         }
     }
 }

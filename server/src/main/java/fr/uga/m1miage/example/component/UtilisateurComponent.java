@@ -51,15 +51,16 @@ public class UtilisateurComponent {
 
     public void deleteUtilitsateur(final long id)  throws EntityNotFound{
         Utilisateur utilisateur = utilisateurRepository.findUtilisateurById(id);
+        if(utilisateur == null){
+            throw new EntityNotFound("Utilitsateur n'existe pas en BD.");
+        }
         List<Panier> panierList = panierRepository.getAllByUtilisateurId(id);
         for (Panier panier : utilisateur.getPanier()) {
             List<Pack> packList = packRepository.getAllByIdPanier(panier.getIdPanier());
             packRepository.deleteAll(packList);
         }
         panierRepository.deleteAll(panierList);
-        if(utilisateur == null){
-            throw new EntityNotFound("Utilitsateur n'existe pas en BD.");
-        }
+
 
         utilisateurRepository.delete(utilisateur);
     }
