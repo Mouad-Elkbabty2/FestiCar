@@ -14,13 +14,21 @@ public class ExampleSpringApplication {
 
         SpringApplication.run(ExampleSpringApplication.class, args);
     }
+
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedOrigins("*")
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                        .allowedHeaders("Origin", "Content-Type", "Accept")
+                        .allowCredentials(true)
+                        .maxAge(3600);
                 registry.addMapping("api/panier/user").allowedOrigins("*");
                 registry.addMapping("/*");
+
             }
         };
     }

@@ -63,7 +63,7 @@ public interface PanierEndPoint {
                     content = @Content) })
     List<PanierDTO> getPanierByUtilisateur(long utilisateurId);
     @CrossOrigin("*")
-    @PatchMapping("/user")
+    @GetMapping("/user")
     @Operation(summary = "affect panier to utilisateur")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "202", description = "L'entité à bien été mis à jour"),
