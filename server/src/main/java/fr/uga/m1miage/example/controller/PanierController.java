@@ -3,6 +3,7 @@ package fr.uga.m1miage.example.controller;
 
 import fr.uga.m1miage.example.endpoint.PanierEndPoint;
 import fr.uga.m1miage.example.request.CreatePanierRequest;
+import fr.uga.m1miage.example.response.EtatPanier;
 import fr.uga.m1miage.example.response.PanierDTO;
 import fr.uga.m1miage.example.service.PanierService;
 import lombok.RequiredArgsConstructor;
@@ -34,6 +35,11 @@ public class PanierController implements PanierEndPoint {
     @Override
     public List<PanierDTO> getPanierByUtilisateur(long utilisateurId) {
         return panierService.getPanierByUtilisateurId(utilisateurId);
+    }
+
+    @Override
+    public PanierDTO setPanierEtat(long panierId, int etatPanier) {
+        return panierService.updatePanier(panierId,etatPanier);
     }
 
   /*  @Override

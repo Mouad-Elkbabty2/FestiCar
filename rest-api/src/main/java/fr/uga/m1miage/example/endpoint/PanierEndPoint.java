@@ -3,6 +3,7 @@ package fr.uga.m1miage.example.endpoint;
 
 import fr.uga.m1miage.example.error.EntityNotFound;
 import fr.uga.m1miage.example.request.CreatePanierRequest;
+import fr.uga.m1miage.example.response.EtatPanier;
 import fr.uga.m1miage.example.response.PanierDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -63,4 +64,12 @@ public interface PanierEndPoint {
                     content = @Content) })
     List<PanierDTO> getPanierByUtilisateur(long utilisateurId);
 
+    @PutMapping
+    @Operation(summary = "UPDATE Panier")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "202", description = "L'entité à bien été mis à jour"),
+            @ApiResponse(responseCode = "404", description = "Panier not found",
+                    content = @Content) })
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    PanierDTO setPanierEtat(long panierId , int etatPanier);
 }
