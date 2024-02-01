@@ -24,7 +24,6 @@ public class CreateUtilisateurRequest {
     private String email ;
     private String mdp ;
 
-    private List<PanierDTO> panier ;
     private TypeUtilisateur typeUtilisateur ;
 
 }
