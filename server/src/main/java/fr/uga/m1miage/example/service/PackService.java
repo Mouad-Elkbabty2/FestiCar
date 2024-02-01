@@ -2,6 +2,7 @@ package fr.uga.m1miage.example.service;
 
 
 import fr.uga.m1miage.example.exception.EntityNotFound;
+import fr.uga.m1miage.example.mapper.ArretCovoiturageMapper;
 import fr.uga.m1miage.example.mapper.PackMapper;
 import fr.uga.m1miage.example.models.*;
 import fr.uga.m1miage.example.repository.ArretCovoitRepository;
@@ -9,13 +10,17 @@ import fr.uga.m1miage.example.repository.CovoiturageRepository;
 import fr.uga.m1miage.example.repository.PackRepository;
 import fr.uga.m1miage.example.repository.PanierRepository;
 import fr.uga.m1miage.example.request.CreatePackRequest;
+import fr.uga.m1miage.example.response.ArretCovoiturageDTO;
+import fr.uga.m1miage.example.response.ArretCovoiturageIdDTO;
 import fr.uga.m1miage.example.response.PackDTO;
+import fr.uga.m1miage.example.response.PackIdDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -28,6 +33,7 @@ public class PackService {
     private final ArretCovoitRepository arretCovoitRepository ;
     private final CovoiturageRepository covoiturageRepository ;
     private final PackMapper packMapper;
+    private final ArretCovoiturageMapper arretCovoiturageMapper;
 
 
     @SneakyThrows
@@ -55,7 +61,24 @@ pack.setNbPlacesReserves(request.getNbPlacesReserves());
     @SneakyThrows
     @Transactional
     public List<PackDTO> getAllByIdPanier(long panierId){
-        return packMapper.entityToDTOList(packRepository.getAllByIdPanier(panierId));
+        List<Pack> packList = packRepository.getAllByIdPanier(panierId);
+        List<PackDTO> packDTOList = new ArrayList<>();
+        for(Pack pack:packList){
+            ArretCovoitId arretCovoitId = pack.getIdPack().getArretCovoiturage().getArretsCovoitId();
+            ArretCovoiturageIdDTO arretCovoiturageIdDTO = arretCovoiturageMapper.dtoToEntityId(arretCovoitId);
+
+            PackIdDTO packIdDTO = packMapper.entityToDTOId(pack.getIdPack());
+            ArretCovoiturageDTO arretCovoiturageDTO = packIdDTO.getArretCovoiturage();
+
+            ;
+            PackDTO packDTO = packMapper.entityToDTO(pack);
+            arretCovoiturageDTO.setArretCovoiturageId(arretCovoiturageIdDTO);
+            packIdDTO.setArretCovoiturage(arretCovoiturageDTO);
+            packDTO.setIdPack(packIdDTO);
+           packDTOList.add(packDTO);
+
+        }
+        return packDTOList;
 
     }
 
