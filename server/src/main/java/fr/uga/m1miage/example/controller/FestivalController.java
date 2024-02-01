@@ -6,12 +6,14 @@ import fr.uga.m1miage.example.service.FestivalService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 
 @RestController
+@CrossOrigin
 @RequiredArgsConstructor
 public class FestivalController implements FestivalEndPoint {
     private final FestivalService festivalService;

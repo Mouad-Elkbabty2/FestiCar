@@ -6,12 +6,14 @@ import fr.uga.m1miage.example.request.CreatePanierRequest;
 import fr.uga.m1miage.example.response.PanierDTO;
 import fr.uga.m1miage.example.service.PanierService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin
 public class PanierController implements PanierEndPoint {
     private final PanierService panierService ;
     @Override

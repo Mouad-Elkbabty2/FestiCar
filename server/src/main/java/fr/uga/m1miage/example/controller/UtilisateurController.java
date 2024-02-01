@@ -6,10 +6,12 @@ import fr.uga.m1miage.example.request.CreateUtilisateurRequest;
 import fr.uga.m1miage.example.response.UtilisateurDTO;
 import fr.uga.m1miage.example.service.UtilisateurService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin
 public class UtilisateurController implements UtilisateurEndPoint {
 
     private final UtilisateurService utilisateurService;

@@ -6,6 +6,7 @@ import fr.uga.m1miage.example.response.PackDTO;
 import fr.uga.m1miage.example.service.PackService;
 import fr.uga.m1miage.example.service.PanierService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin
 public class PackController implements PackEndPoint {
 
     private final PackService packService;

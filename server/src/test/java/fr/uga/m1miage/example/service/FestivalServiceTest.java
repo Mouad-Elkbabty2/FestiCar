@@ -38,6 +38,7 @@ import static org.mockito.Mockito.*;
     @Test
     @SneakyThrows
      void testGetAllFestivals() {
+
         // Créez des objets factices pour les besoins du test
         Festival festival = new Festival();
         FestivalDTO expectedFestivalDTO = new FestivalDTO();
@@ -50,6 +51,8 @@ import static org.mockito.Mockito.*;
         List<FestivalDTO> actualFestivalDTOList = festivalService.getAllFestivals();
 
         // Vérifiez si le résultat attendu est égal au résultat réel
+       System.out.println(Collections.singletonList(expectedFestivalDTO));
+       System.out.println(actualFestivalDTOList);
         assertEquals(Collections.singletonList(expectedFestivalDTO), actualFestivalDTOList);
     }
 

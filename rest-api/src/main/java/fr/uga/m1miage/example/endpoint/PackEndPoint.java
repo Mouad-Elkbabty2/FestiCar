@@ -17,7 +17,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Tag(name = "Pack tag")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200/")
 @RestController
 @RequestMapping(value="api/pack/" , produces = "application/json")
 public interface PackEndPoint {
@@ -46,7 +46,7 @@ public interface PackEndPoint {
                     content = @Content) })
     List<PackDTO> getAllPackByPanierId(long panierId) ;
     @CrossOrigin("*")
-    @PostMapping ("/user")
+    @PostMapping ("/anas")
     @Operation(summary = "affect panier to utilisateur")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "202", description = "L'entité à bien été mis à jour"),
