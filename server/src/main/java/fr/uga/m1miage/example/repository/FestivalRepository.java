@@ -18,7 +18,7 @@ public interface FestivalRepository extends JpaRepository<Festival,Long> {
 
     List<Festival> findAllByCommune(String codeInsee);
 
-    @Query(nativeQuery = true, value = "SELECT * FROM (SELECT * FROM festival ORDER BY DBMS_RANDOM.VALUE) WHERE ROWNUM <= 8")
+    @Query(nativeQuery = true, value = "SELECT * FROM (SELECT * FROM festival ORDER BY ABS(TO_DATE(DATE_DEBUT, 'YYYY-MM-DD') - SYSDATE)) WHERE ROWNUM <= 8 ORDER BY DATE_DEBUT DESC")
     List<Festival> getAllFestivals();
 
     Festival findFestivalByNomFestival(final String festival);
