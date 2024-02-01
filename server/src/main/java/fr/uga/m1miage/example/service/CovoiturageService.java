@@ -2,9 +2,14 @@ package fr.uga.m1miage.example.service;
 
 import fr.uga.m1miage.example.component.CovoiturageComponent;
 import fr.uga.m1miage.example.exception.EntityNotFound;
+import fr.uga.m1miage.example.mapper.ArretCovoiturageMapper;
 import fr.uga.m1miage.example.mapper.CovoiturageMapper;
+import fr.uga.m1miage.example.models.ArretCovoitId;
+import fr.uga.m1miage.example.models.ArretCovoiturage;
 import fr.uga.m1miage.example.models.Covoiturage;
 import fr.uga.m1miage.example.repository.CovoiturageRepository;
+import fr.uga.m1miage.example.response.ArretCovoiturageDTO;
+import fr.uga.m1miage.example.response.ArretCovoiturageIdDTO;
 import fr.uga.m1miage.example.response.CovoiturageDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -22,7 +27,7 @@ public class CovoiturageService {
     private final CovoiturageComponent covoiturageComponent;
     private final CovoiturageMapper covoiturageMapper;
     private final CovoiturageRepository covoiturageRepository ;
-
+    private final ArretCovoiturageMapper arretCovoiturageMapper;
     @SneakyThrows
     @Transactional
     public List<String> getModeleVoiture(){return covoiturageComponent.getModeleVoiture();}
@@ -34,8 +39,20 @@ public class CovoiturageService {
             Page<Covoiturage> covoituragesPage = covoiturageComponent.getCovoiturageByFestivalId(id,pageable);
             List<Covoiturage> covoiturages = covoituragesPage.getContent();
             List<CovoiturageDTO> covoitsDTOs = new ArrayList<>();
+            List<ArretCovoiturageDTO> arretCovoiturageDTOList = new ArrayList<>();
             for(Covoiturage co:covoiturages){
-                covoitsDTOs.add(covoiturageMapper.entityToDTO(co));
+                CovoiturageDTO covoiturageDTO = covoiturageMapper.entityToDTO(co);
+                List<ArretCovoiturage> arretCovoiturageList = co.getArretCovoiturageList();
+                for(ArretCovoiturage arretCovoiturage:arretCovoiturageList){
+                    ArretCovoitId arretCovoitId = arretCovoiturage.getArretsCovoitId();
+                    ArretCovoiturageIdDTO arretCovoiturageIdDTO = arretCovoiturageMapper.entityIdToDTO(arretCovoitId);
+                    ArretCovoiturageDTO arretCovoiturageDTO = arretCovoiturageMapper.entityToDTO(arretCovoiturage);
+                    arretCovoiturageDTO.setArretCovoiturageId(arretCovoiturageIdDTO);
+                    arretCovoiturageDTOList.add(arretCovoiturageDTO);
+                }
+
+                covoiturageDTO.setArretCovoiturageList(arretCovoiturageDTOList);
+                covoitsDTOs.add(covoiturageDTO);
             }
             return covoitsDTOs;
         }catch(EntityNotFound e){
