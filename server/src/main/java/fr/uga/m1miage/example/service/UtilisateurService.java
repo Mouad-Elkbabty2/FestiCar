@@ -62,6 +62,14 @@ public class UtilisateurService {
 }
 
 
-
+    @SneakyThrows
+    @Transactional
+    public UtilisateurDTO getUtilisateurByEmailAndMDP(String email,String mdp){
+        Utilisateur utilisateur = utilisateurRepository.getUtilisateurByEmailAndMdp(email,mdp);
+        if(utilisateur == null){
+            throw new EntityNotFound("Utilisateur not found ");
+        }
+        return utilisateurMapper.entityToDTO(utilisateur);
+    }
 
 }

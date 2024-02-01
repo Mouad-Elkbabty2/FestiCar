@@ -27,6 +27,11 @@ public class UtilisateurController implements UtilisateurEndPoint {
     }
 
     @Override
+    public UtilisateurDTO getUtilisateurByEmailAndMdp(String email,String mdp) {
+        return utilisateurService.getUtilisateurByEmailAndMDP(email,mdp);
+    }
+
+    @Override
     public UtilisateurDTO createUtilisateur(final CreateUtilisateurRequest request)  {
             return  utilisateurService.createUtilisateur(request);
         }

@@ -14,8 +14,8 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PanierDTO {
-    private long idPanier;
 
+    private long idPanier;
 
     private Date dateCreation;
 

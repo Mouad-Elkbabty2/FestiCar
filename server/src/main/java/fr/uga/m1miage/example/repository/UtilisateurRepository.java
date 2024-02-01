@@ -20,4 +20,5 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur,Long> {
     @Query(nativeQuery = false,value="select c from Panier c where c.utilisateur.id = :utilisateurId ")
     List<Panier> getPanierByUtilisateurId(long utilisateurId);
 
+    Utilisateur getUtilisateurByEmailAndMdp(String mail,String mdp);
 }
