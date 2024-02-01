@@ -38,9 +38,11 @@ public class CovoiturageService {
         try{
             Page<Covoiturage> covoituragesPage = covoiturageComponent.getCovoiturageByFestivalId(id,pageable);
             List<Covoiturage> covoiturages = covoituragesPage.getContent();
-            List<CovoiturageDTO> covoitsDTOs = new ArrayList<>();
-            List<ArretCovoiturageDTO> arretCovoiturageDTOList = new ArrayList<>();
+            List<CovoiturageDTO> covoitsDTOs =   new ArrayList<>();
+
+            List<ArretCovoiturageDTO> arretCovoiturageDTOList = null ;
             for(Covoiturage co:covoiturages){
+                arretCovoiturageDTOList = new ArrayList<>() ;
                 CovoiturageDTO covoiturageDTO = covoiturageMapper.entityToDTO(co);
                 List<ArretCovoiturage> arretCovoiturageList = co.getArretCovoiturageList();
                 for(ArretCovoiturage arretCovoiturage:arretCovoiturageList){
