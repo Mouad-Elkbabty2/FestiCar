@@ -45,5 +45,13 @@ public interface PackEndPoint {
             @ApiResponse(responseCode = "404", description = "Packs not found",
                     content = @Content) })
     List<PackDTO> getAllPackByPanierId(long panierId) ;
-
+    @CrossOrigin("*")
+    @PostMapping ("/user")
+    @Operation(summary = "affect panier to utilisateur")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "202", description = "L'entité à bien été mis à jour"),
+            @ApiResponse(responseCode = "404", description = "Panier not found",
+                    content = @Content) })
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    void setPanierUser(long panierId , long userId);
 }

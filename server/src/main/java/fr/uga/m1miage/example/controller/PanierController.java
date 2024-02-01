@@ -34,10 +34,10 @@ public class PanierController implements PanierEndPoint {
         return panierService.getPanierByUtilisateurId(utilisateurId);
     }
 
-    @Override
+  /*  @Override
     public void setPanierUser(long panierId, long userId) {
         panierService.setPanierUser(panierId,userId);
-    }
+    }*/
 
 
 }

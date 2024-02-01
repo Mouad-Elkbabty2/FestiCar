@@ -4,6 +4,7 @@ import fr.uga.m1miage.example.endpoint.PackEndPoint;
 import fr.uga.m1miage.example.request.CreatePackRequest;
 import fr.uga.m1miage.example.response.PackDTO;
 import fr.uga.m1miage.example.service.PackService;
+import fr.uga.m1miage.example.service.PanierService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +16,7 @@ import java.util.List;
 public class PackController implements PackEndPoint {
 
     private final PackService packService;
+    private final PanierService panierService ;
     @Override
     public PackDTO createPack(CreatePackRequest createPackRequest)  {
         return packService.createPack(createPackRequest);
@@ -29,4 +31,10 @@ public class PackController implements PackEndPoint {
     public List<PackDTO> getAllPackByPanierId(long panierId) {
         return packService.getAllByIdPanier(panierId);
     }
+
+    @Override
+    public void setPanierUser(long panierId, long userId) {
+        panierService.setPanierUser(panierId,userId);
+    }
+
 }
