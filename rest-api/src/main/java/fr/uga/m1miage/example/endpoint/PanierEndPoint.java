@@ -18,7 +18,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Tag(name = "Panier tag")
-@CrossOrigin
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value="api/panier/" , produces = "application/json")
 public interface PanierEndPoint {
@@ -62,17 +62,13 @@ public interface PanierEndPoint {
             @ApiResponse(responseCode = "404", description = "Panier not found",
                     content = @Content) })
     List<PanierDTO> getPanierByUtilisateur(long utilisateurId);
-    @CrossOrigin
+    @CrossOrigin("*")
     @PatchMapping("/user")
     @Operation(summary = "affect panier to utilisateur")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Panier patched",
-                    content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = PanierDTO.class)) }),
-            @ApiResponse(responseCode = "400", description = "Invalid id supplied",
-                    content = @Content),
+            @ApiResponse(responseCode = "202", description = "L'entité à bien été mis à jour"),
             @ApiResponse(responseCode = "404", description = "Panier not found",
                     content = @Content) })
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.ACCEPTED)
     void setPanierUser(long panierId , long userId);
 }

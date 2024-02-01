@@ -19,7 +19,8 @@ public class ExampleSpringApplication {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("*").allowedOrigins("*");
+                registry.addMapping("api/panier/user").allowedOrigins("*");
+                registry.addMapping("/*");
             }
         };
     }
