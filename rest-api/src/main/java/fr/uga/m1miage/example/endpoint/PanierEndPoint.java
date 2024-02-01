@@ -13,6 +13,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -72,4 +73,13 @@ public interface PanierEndPoint {
                     content = @Content) })
     @ResponseStatus(HttpStatus.ACCEPTED)
     PanierDTO setPanierEtat(long panierId , int etatPanier);
+
+@GetMapping("pdf/{panierId}")
+@Operation(summary = "Get a PDF ")
+@ApiResponses(value = {
+        @ApiResponse(responseCode = "202", description = "L'entité à bien été mis à jour"),
+        @ApiResponse(responseCode = "404", description = "Panier not found",
+                content = @Content) })
+@ResponseStatus(HttpStatus.ACCEPTED)
+     ResponseEntity<byte[]> generatePdf(@PathVariable long panierId);
 }

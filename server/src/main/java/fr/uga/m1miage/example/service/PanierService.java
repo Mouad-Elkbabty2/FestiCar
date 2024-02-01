@@ -4,7 +4,6 @@ import fr.uga.m1miage.example.component.PanierComponent;
 import fr.uga.m1miage.example.exception.EntityNotFound;
 import fr.uga.m1miage.example.mapper.PanierMapper;
 import fr.uga.m1miage.example.models.EtatPanier;
-import fr.uga.m1miage.example.models.Pack;
 import fr.uga.m1miage.example.models.Panier;
 import fr.uga.m1miage.example.repository.PanierRepository;
 import fr.uga.m1miage.example.repository.UtilisateurRepository;
@@ -13,6 +12,12 @@ import fr.uga.m1miage.example.response.PanierDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+
+import java.io.ByteArrayOutputStream;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -94,5 +99,16 @@ public class PanierService {
         panier.setUtilisateur(utilisateurRepository.getUtilisateurById(idUser));
         panierRepository.save(panier);
     }
+    public byte[] generatePdf(String panierInfo) throws DocumentException {
+        Document document = new Document();
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        PdfWriter.getInstance(document, byteArrayOutputStream);
 
+        document.open();
+        document.add(new Paragraph("Informations du Panier :\n\n" + panierInfo));
+        document.add(new Paragraph("\n\nVotre panier est payé."));
+        document.close();
+
+        return byteArrayOutputStream.toByteArray();
+    }
 }
