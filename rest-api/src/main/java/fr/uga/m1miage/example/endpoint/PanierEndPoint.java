@@ -18,7 +18,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Tag(name = "Panier tag")
-@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.PATCH, RequestMethod.OPTIONS})
+@CrossOrigin
 @RestController
 @RequestMapping(value="api/panier/" , produces = "application/json")
 public interface PanierEndPoint {
