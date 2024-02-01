@@ -63,7 +63,7 @@ public interface PanierEndPoint {
                     content = @Content) })
     List<PanierDTO> getPanierByUtilisateur(long utilisateurId);
 
-    @PostMapping
+    @PostMapping("/user")
     @Operation(summary = "affect panier to utilisateur")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Panier patched",
