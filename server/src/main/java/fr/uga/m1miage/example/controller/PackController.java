@@ -39,4 +39,9 @@ public class PackController implements PackEndPoint {
         panierService.setPanierUser(panierId,userId);
     }
 
+    @Override
+    public void deletePackById(String horaire, long idCovoiturage, long panierId) {
+        packService.deletePackById(horaire,idCovoiturage,panierId);
+    }
+
 }

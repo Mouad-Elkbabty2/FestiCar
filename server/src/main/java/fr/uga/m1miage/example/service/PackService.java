@@ -95,4 +95,10 @@ pack.setNbPlacesReserves(request.getNbPlacesReserves());
         packRepository.save(pack);
         return packMapper.entityToDTO(pack);
     }
+    @SneakyThrows
+    @Transactional
+    public  void deletePackById(String horaire,long idCovoiturage,long idPanier){
+        Pack pack = packRepository.getPackByIdPack(horaire,idCovoiturage,idPanier);
+        packRepository.delete(pack);
+    }
 }

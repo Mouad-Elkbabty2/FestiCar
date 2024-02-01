@@ -94,4 +94,5 @@ public class PanierService {
         panier.setUtilisateur(utilisateurRepository.getUtilisateurById(idUser));
         panierRepository.save(panier);
     }
+
 }

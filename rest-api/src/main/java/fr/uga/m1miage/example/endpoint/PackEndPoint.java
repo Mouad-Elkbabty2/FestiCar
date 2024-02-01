@@ -54,4 +54,14 @@ public interface PackEndPoint {
                     content = @Content) })
     @ResponseStatus(HttpStatus.ACCEPTED)
     void setPanierUser(long panierId , long userId);
+
+
+    @DeleteMapping
+    @Operation(summary = "delete pack by id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "202", description = "L'entité à bien été mis à jour"),
+            @ApiResponse(responseCode = "404", description = "Panier not found",
+                    content = @Content) })
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    void deletePackById(String horaire, long idCovoiturage,long panierId);
 }
