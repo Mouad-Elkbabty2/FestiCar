@@ -92,7 +92,9 @@ pack.setNbPlacesReserves(request.getNbPlacesReserves());
         throw new EntityNotFound("Pack not found ");
     }
         pack.setNbPlacesReserves(request.getNbPlacesReserves());
-        packRepository.save(pack);
+    pack.getIdPack().getArretCovoiturage().getArretsCovoitId().getIdCovoiturage().setNbPlacesReservées(request.getNbPlacesReserves());
+        covoiturageRepository.save( pack.getIdPack().getArretCovoiturage().getArretsCovoitId().getIdCovoiturage());
+    packRepository.save(pack);
         return packMapper.entityToDTO(pack);
     }
     @SneakyThrows
